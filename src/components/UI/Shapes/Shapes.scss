@@ -1,0 +1,85 @@
+@import "../../../sass/global";
+
+.shapes {
+  &__circle {
+    background-color: $color-primary-dark;
+    filter: brightness(125%);
+    border-radius: 20rem;
+    position: absolute;
+    gap: 3rem;
+    z-index: -1;
+
+    &--1 {
+      padding: 4rem;
+      animation: move1 45s infinite;
+    }
+
+    &--2 {
+      padding: 3rem;
+      animation: move2 35s infinite;
+    }
+
+    &--3 {
+      padding: 2rem;
+      animation: move3 30s infinite;
+    }
+
+    &--4 {
+      padding: 1.7rem;
+      animation: move4 17s infinite;
+    }
+    &--5 {
+      padding: 2.2rem;
+      animation: move5 22s infinite;
+    }
+  }
+}
+
+@keyframes move1 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(25rem) translateX(6rem);
+  }
+}
+@keyframes move2 {
+  0%,
+  100% {
+    transform: translateY(0rem) translateX(-10rem);
+  }
+  50% {
+    transform: translateY(10rem) translateX(-2rem);
+  }
+}
+
+@keyframes move3 {
+  0%,
+  100% {
+    transform: translateY(30rem) translateX(10rem);
+  }
+  50% {
+    transform: translateY(23rem) translateX(0rem);
+  }
+}
+
+@keyframes move4 {
+  0%,
+  100% {
+    transform: translateY(30rem) translateX(-10rem);
+  }
+  50% {
+    transform: translateY(35rem) translateX(5rem);
+  }
+}
+
+@keyframes move5 {
+  0%,
+  100% {
+    transform: translateY(30rem) translateX(-10rem);
+  }
+  50% {
+    transform: translateY(35rem);
+  }
+}

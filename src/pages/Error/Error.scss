@@ -1,0 +1,33 @@
+@import "../../sass/global";
+
+.error-container {
+  z-index: 999;
+  position: fixed;
+  top: 20%;
+  left: 40%;
+  transform: translateX(-50%);
+
+  h2 {
+    font-size: $font-size-l;
+
+    a {
+      text-decoration: none;
+      color: $color-primary-c;
+
+      &:hover {
+        filter: brightness(110%);
+      }
+
+      &:active {
+        color: $color-primary;
+      }
+    }
+  }
+
+  img {
+    background-color: $color-primary-c-light;
+    border-radius: 1rem;
+    height: 45vh;
+    padding-right: 1rem;
+  }
+}
