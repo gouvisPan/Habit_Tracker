@@ -15,7 +15,7 @@ const Layout = () => {
       setIsErrorDisplaying(true);
       const timer = setTimeout(() => {
         setIsErrorDisplaying(false);
-      }, 4000);
+      }, 7000);
 
       return () => {
         clearTimeout(timer);
@@ -29,8 +29,7 @@ const Layout = () => {
   return (
     <div>
       {isLoading && <Spinner />}
-      {/* {error && isErrorDisplaying && <Notification message={error} type="error"/>} */}
-      <Notification message={error} type="error" />
+      {error && isErrorDisplaying && <Notification message={error} type="error"/>}
       <Outlet />
     </div>
   );

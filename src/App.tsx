@@ -14,16 +14,16 @@ import { userActions } from "./store/reducers/userSlice";
 function App() {
   const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       dispatch(userActions.autoLoginUser(user));
-  //     } else {
-  //       dispatch(userActions.setLoginStatus(false));
-  //       dispatch(userActions.autoLoginUser(null));
-  //     }
-  //   });
-  // }, [dispatch]);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(userActions.autoLoginUser(user));
+      } else {
+        dispatch(userActions.setLoginStatus(false));
+        dispatch(userActions.autoLoginUser(null));
+      }
+    });
+  }, [dispatch]);
 
   return (
     <Router>
