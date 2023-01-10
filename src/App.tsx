@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { userActions } from "./store/reducers/userSlice";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -36,6 +37,7 @@ function App() {
           <Route element={<RequireAuth />}>
             <Route path="" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
           {/*<---------------------------- USER ROUTE*/}
           <Route path="*" element={<Error />} />

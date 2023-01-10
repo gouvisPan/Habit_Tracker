@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Habit } from "../../model/Habit";
 import User from "../../model/User";
 import {
   createUser,
@@ -14,6 +15,7 @@ interface userSliceState {
   error: null | string;
   data: null | any;
   token: null | string;
+  habitList: null | Habit[];
 }
 
 const initialState: userSliceState = {
@@ -23,6 +25,7 @@ const initialState: userSliceState = {
   error: null,
   data: null,
   token: null,
+  habitList: null,
 };
 
 const userSlice = createSlice({
@@ -37,6 +40,9 @@ const userSlice = createSlice({
       state.isSuccess = true;
       state.isAuthenticated = true;
       state.data = action.payload;
+    },
+    clearErrorState: (state) => {
+      state.error = null;
     },
   },
   //  while the useEffect on App.tsx handles auth state, those extra reducers ensure:

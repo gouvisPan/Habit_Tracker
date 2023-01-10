@@ -11,7 +11,7 @@ const override: CSSProperties = {
 };
 
 const Spinner = () => {
-  return <HashLoader cssOverride={override} color="#845ef7" />;
+  return <HashLoader cssOverride={override} color="#ff6b6b" />;
 };
 
 export default Spinner;

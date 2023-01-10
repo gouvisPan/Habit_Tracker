@@ -16,9 +16,7 @@ const Auth: React.FC = () => {
   const [signIn, setSignIn] = useState(true);
   const dispatch = useAppDispatch();
 
-  const { isSuccess, isLoading, data, isAuthenticated } = useAppSelector(
-    (state) => state.user
-  );
+  const { data, isAuthenticated } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -75,19 +73,18 @@ const Auth: React.FC = () => {
     <Fragment>
       <Shapes />
       <h1>Not a user?</h1>
-      <h5>
-        Fill in your credentials to create an account or chose another sign-up
-        method.
+      <h5 className="anim">
+        Give us some extra information and create your account.
       </h5>
       <button onClick={signInHandler}>Sign Up</button>
     </Fragment>
   ) : (
     <Fragment>
       <Shapes />
-      <h1>SkillSwap User?</h1>
-      <h5>
+      <h1>GoalTrack User?</h1>
+      <h5 className="anim">
         Welcome back! Login to your account and get back to your growth journey
-        right away
+        right away.
       </h5>
       <button onClick={signUpHandler}>Sign In</button>
     </Fragment>

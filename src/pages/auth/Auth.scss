@@ -56,7 +56,7 @@
 
   &__right {
     z-index: 2;
-    width:40vw;
+    width: 40vw;
     background-color: $color-primary-light;
     // background: linear-gradient(90deg, $color-primary-light 0%, $color-primary 100%);
     padding-top: 5rem;
@@ -115,4 +115,31 @@
 .unmountCR {
   transition: 1.5s;
   transform: translateX(0);
+}
+
+.anim {
+  -webkit-animation: rotate 0.7s ease;
+  animation: rotate 0.7s ease;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
 }

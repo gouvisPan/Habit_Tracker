@@ -1,18 +1,26 @@
 import React from "react";
-import Navbar from "./Navbar";
-import logo from "./../../assets/reactLogo.png";
-import { NavLink, useLocation } from "react-router-dom";
-import useScroll from "../../hooks/useScroll";
+import SpinningButton from "./SpinningButton/SpinningButton";
+import "./Header.scss";
+import { BiLogOutCircle } from "react-icons/bi";
+import { useAppDispatch } from "../../hooks/hooks";
+import { logoutUser } from "../../store/actions/user-actions";
+import logo from "../../assets/logo-no-bg.png";
 
 const Header = () => {
-  const scrollPosition = useScroll();
+  const dispatch = useAppDispatch();
+
+  const signOutClickHandler = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <div className="header-container">
-      <NavLink to="home">
-        <img src={logo} alt="logo"></img>
-      </NavLink>
-      <Navbar scrolled={scrollPosition > 12} />
+      <img src={logo} alt="GoalTrack logo" className="header-container__logo" />
+      <SpinningButton />
+      <BiLogOutCircle
+        className="header-container__logout"
+        onClick={signOutClickHandler}
+      />
     </div>
   );
 };
