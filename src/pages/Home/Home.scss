@@ -1,6 +1,13 @@
 @import "../../sass/global";
 
 .home-container {
-  margin-top: 6rem;
+  margin-top: $page-margin-top;
+  margin-left: $page-margin-horizontal;
+  margin-right: $page-margin-horizontal;
   display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: space-evenly;
+
+  justify-items: flex-end;
 }

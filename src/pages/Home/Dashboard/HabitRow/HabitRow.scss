@@ -1,0 +1,15 @@
+@import "../../../../sass/global";
+
+.dash-container{
+
+    &__habit-name{
+        background-color: $color-grey-white;
+        width: 100%;
+        padding: .2rem .4rem;
+    }
+
+
+    input{
+        justify-self: center;
+    }
+}

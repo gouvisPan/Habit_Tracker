@@ -6,8 +6,8 @@ import "./Home.scss";
 const Home = () => {
   return (
     <div className="home-container">
-      <AddHabit />
       <Dashboard />
+      <AddHabit />
     </div>
   );
 };

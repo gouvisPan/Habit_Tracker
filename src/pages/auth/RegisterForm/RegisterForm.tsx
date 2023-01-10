@@ -15,7 +15,7 @@ const RegisterForm = () => {
       .max(23, "Pasword must be up to 23 characters")
       .required("Password is required"),
   });
-  const onSubmit = (
+  const onSubmitHandler = (
     email: string,
     name: string,
     password: string,
@@ -44,7 +44,7 @@ const RegisterForm = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        onSubmit(
+        onSubmitHandler(
           values.email,
           values.name,
           values.password,

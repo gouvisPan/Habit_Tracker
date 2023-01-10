@@ -1,1 +1,25 @@
 @import "../../../sass/global";
+
+
+.dash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-primary-light;
+    padding-bottom: 2rem;
+    border-radius: 4px;
+}
+.dash-container{
+    
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    justify-items: start;
+    grid-template-columns: 3fr repeat(7 , 1fr);
+
+    h1{
+    }
+    &__week-day-name{
+        justify-self: center;
+    }
+}

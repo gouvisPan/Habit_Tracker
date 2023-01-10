@@ -14,7 +14,7 @@ const LoginForm = () => {
     password: Yup.string().required("Password is required"),
   });
 
-  const onSubmit = (email: string, password: string) => {
+  const onSubmitHandler = (email: string, password: string) => {
     dispatch(
       loginUser({
         email,
@@ -31,7 +31,7 @@ const LoginForm = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        onSubmit(values.email, values.password);
+        onSubmitHandler(values.email, values.password);
       }}
     >
       {(formik) => (
