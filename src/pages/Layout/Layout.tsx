@@ -17,6 +17,7 @@ const Layout = () => {
       setIsErrorDisplaying(true);
       const timer = setTimeout(() => {
         setIsErrorDisplaying(false);
+
         dispatch(userActions.clearErrorState());
       }, 4000);
 
@@ -36,6 +37,7 @@ const Layout = () => {
         <Notification message={error} type="error" />
       )}
       {/* <Notification message={error} type="error" /> */}
+
       <Outlet />
     </div>
   );

@@ -48,9 +48,6 @@ const LoginForm = () => {
               Sign In
             </button>
           </Form>
-
-          {/* {successState && <Success message="E-mail sent!" />}
-              {errorState && <Error message="Something went wrong" />} */}
         </div>
       )}
     </Formik>
