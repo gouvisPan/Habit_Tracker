@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { Habit } from "../../../model/Habit";
+import { habitActions } from "../../../store/reducers/habitSlice";
 import { userActions } from "../../../store/reducers/userSlice";
 import TextField from "../../auth/TextField";
 import "./AddHabit.scss";
@@ -32,9 +33,11 @@ const AddHabit = () => {
       weeklyState: [false, false, false, false, false, false, false],
     };
     console.log(tmpHabit);
-    dispatch(userActions.addHabit(tmpHabit));
+    dispatch(habitActions.addHabit(tmpHabit));
   };
-
+  const clear = () =>{
+    dispatch(habitActions.clearHabits());
+  }
   return (
     <Formik
       initialValues={initialValues}

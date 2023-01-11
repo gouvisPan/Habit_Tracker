@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
+  
 
   &__logo {
     position: fixed;
@@ -32,4 +33,8 @@
     text-decoration: none;
     color: $color-primary;
   }
+}
+
+.white{
+  color: white;
 }

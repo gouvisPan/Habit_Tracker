@@ -11,6 +11,7 @@ import storage from "redux-persist/lib/storage";
 import { persistStore, persistCombineReducers } from "redux-persist";
 import userSlice from "./userSlice";
 import uiSlice from "./ui-slice";
+import habitSlice from "./habitSlice";
 
 const persistConfig = {
   key: "root",
@@ -20,6 +21,7 @@ const persistConfig = {
 const userReducer = {
   user: userSlice.reducer,
   ui: uiSlice.reducer,
+  habits: habitSlice.reducer
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, userReducer);

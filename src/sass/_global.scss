@@ -9,7 +9,8 @@ body {
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
+  overflow-y: hidden;
+
 }
 
 code {
@@ -20,6 +21,7 @@ code {
 .page {
   margin-top: 4rem;
 }
+
 
 .c {
   margin: $margin-nav-fit 0 6rem 0;

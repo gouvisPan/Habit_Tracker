@@ -4,7 +4,12 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import "./SpinningButton.scss";
 
-const SpinningButton = () => {
+
+interface SpinningButtonProps{
+  className: string
+}
+const SpinningButton: React.FC<SpinningButtonProps> = (props) => {
+
   const [isHome, setIsHome] = useState<boolean>(false);
   const [isButtonAnimating, setIsButtonAnimating] = useState<boolean>(false);
 
@@ -26,7 +31,7 @@ const SpinningButton = () => {
 
   return (
     <NavLink onClick={iconPressHandler} to={isHome ? "/home" : "/profile"}>
-      <div className={`${isButtonAnimating && "animate-l"} icon-c`}>
+      <div className={`${isButtonAnimating && "animate-l"} icon-c ${props.className}`}>
         {renderedIcon}
       </div>
     </NavLink>

@@ -1,9 +1,9 @@
 @import "../../sass/global";
 
 .home-container {
-  margin-top: $page-margin-top;
-  margin-left: $page-margin-horizontal;
-  margin-right: $page-margin-horizontal;
+  // margin-top: $page-margin-top;
+  // margin-left: $page-margin-horizontal;
+  // margin-right: $page-margin-horizontal;
   margin-bottom: $page-margin-bottom;
   display: flex;
   flex-direction: column;
@@ -16,5 +16,8 @@
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
   }
 }

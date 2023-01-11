@@ -5,15 +5,20 @@
   flex-direction: column;
   align-items: center;
   padding: 0 4rem;
-  background-color: $color-primary-light;
+  background: $color-primary-gradient;
+  padding-top: 2rem;
   padding-bottom: 2rem;
   gap: 0.5rem;
-  border-radius: 4px;
+  color: white;
 
+  h1{
+    margin-bottom: 3rem;
+  }
   button {
     margin-top: 2rem;
     align-self: flex-end;
-    background-color: $color-primary-c;
+    background-color: $color-grey-white;
+    color: $color-grey-black;
     padding: 0.5rem 1rem;
 
     &:hover {
@@ -34,13 +39,23 @@
   justify-items: start;
   grid-template-columns: 4fr repeat(7, 1fr) 0.5fr;
   padding: 1em;
+  padding-bottom: 2rem;
   border-radius: 12px;
   max-height: 30vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  color: $color-grey-black;
 
-  h1 {
+  
+  &::-webkit-scrollbar {
+    display: none;
   }
+  
+  &__habit-name-c{
+      font-size: 20px;
+      font-weight: 700;
+  }
+  
   &__week-day-name {
     justify-self: center;
   }

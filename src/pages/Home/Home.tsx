@@ -7,16 +7,16 @@ import "./Home.scss";
 import InfoBlock from "./InfoBlock/InfoBlock";
 
 const Home = () => {
-  const habits = useAppSelector((state) => state.user.habitList);
+
 
   return (
     <div className="home-container">
-      {habits && <Dashboard habits={habits} />}
-      {!habits && <AddHabitsPrompt />}
+      <Dashboard />
       <div className="home-container__middle">
         <AddHabit />
         <InfoBlock />
       </div>
+      
     </div>
   );
 };

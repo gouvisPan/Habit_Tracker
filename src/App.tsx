@@ -14,7 +14,7 @@ import Profile from "./pages/Profile/Profile";
 
 function App() {
   const dispatch = useAppDispatch();
-
+  // dispatch(userActions.clearHabits())
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {

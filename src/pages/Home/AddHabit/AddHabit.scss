@@ -39,5 +39,10 @@
         filter: brightness(95%);
       }
     }
+    &--submit-clr {
+      position: fixed;
+      top:0;
+      left:0;
+    }
   }
 }
