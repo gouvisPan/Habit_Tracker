@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./SpinningButton.scss";
 
 const SpinningButton = () => {
-  const [isHome, setIsHome] = useState<boolean>(true);
+  const [isHome, setIsHome] = useState<boolean>(false);
   const [isButtonAnimating, setIsButtonAnimating] = useState<boolean>(false);
 
   const iconPressHandler = () => {

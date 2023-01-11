@@ -44,6 +44,22 @@ const userSlice = createSlice({
     clearErrorState: (state) => {
       state.error = null;
     },
+    updateHabitList: (state, action: PayloadAction<Habit[]>) => {
+      state.habitList = action.payload;
+    },
+    addHabit: (state, action: PayloadAction<Habit>) => {
+      if (state.habitList) {
+        state.habitList!.push(action.payload);
+      } else {
+        state.habitList = [action.payload];
+      }
+    },
+    removeHabit: (state, action: PayloadAction<string>) => {
+      if (state.habitList?.filter((h) => h.id !== action.payload))
+        state.habitList = state.habitList?.filter(
+          (h) => h.id !== action.payload
+        );
+    },
   },
   //  while the useEffect on App.tsx handles auth state, those extra reducers ensure:
   //  a)That the Loading and Error states of the app are handled properly and

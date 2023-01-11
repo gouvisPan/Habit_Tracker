@@ -1,15 +1,66 @@
 @import "../../../../sass/global";
 
-.dash-container{
+.dash-container {
+  &__habit-name {
+    background-color: $color-grey-white;
+    width: 100%;
+    padding: 0.2rem 0.4rem;
+  }
 
-    &__habit-name{
-        background-color: $color-grey-white;
-        width: 100%;
-        padding: .2rem .4rem;
+  &__icon {
+    display: flex;
+    align-items: center;
+    background-color: rgb(205, 6, 6);
+    color: white;
+    width: 100%;
+    height: 110%;
+    transform: translateX(99%);
+    padding-left: 0.5rem;
+    transition: 0.2s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateX(35%);
+      transition: 0.2s ease-in;
     }
+  }
 
+  &__habit-checkbox {
+    justify-self: center;
+  }
+  &__habit-checkbox input[type="checkbox"]:hover + label::before {
+    cursor: pointer;
+    background-color: $color-primary-lightest;
+  }
+  &__habit-checkbox input[type="checkbox"]:focus + label::before {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  &__habit-checkbox input[type="checkbox"]:checked + label::before {
+    background-color: $color-grey-white;
+    content: "\2713";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+  }
 
-    input{
-        justify-self: center;
-    }
+  input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+  }
+  label {
+    cursor: pointer;
+    display: flex;
+  }
+  label::before {
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    border: 0.07em solid black;
+    border-radius: 2em;
+  }
+  label:hover::before {
+    background-color: $color-primary-lightest;
+  }
 }

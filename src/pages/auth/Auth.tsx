@@ -81,7 +81,7 @@ const Auth: React.FC = () => {
   ) : (
     <Fragment>
       <Shapes />
-      <h1>GoalTrack User?</h1>
+      <h1>HabitFormer User?</h1>
       <h5 className="anim">
         Welcome back! Login to your account and get back to your growth journey
         right away.

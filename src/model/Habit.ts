@@ -1,6 +1,8 @@
 export interface Habit {
   id: string;
   name: string;
-  currentPerc: number;
   desiredPerc: number;
+  totalDays: number;
+  totalChecks: number;
+  weeklyState: boolean[];
 }

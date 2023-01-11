@@ -1,0 +1,17 @@
+@import "../../../sass/global";
+
+.info-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+
+  border: 0.08em solid black;
+  border-radius: 12px;
+  &__logo {
+    width: 14rem;
+  }
+
+  p {
+    width: 20rem;
+  }
+}

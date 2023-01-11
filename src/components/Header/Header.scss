@@ -12,10 +12,10 @@
   &__logo {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 14rem;
-    margin-top: -4rem;
-    margin-left: -1.5rem;
+    left: 50%;
+    width: 16rem;
+    margin-top: -5rem;
+    transform: translateX(-50%);
   }
 
   &__logout {
