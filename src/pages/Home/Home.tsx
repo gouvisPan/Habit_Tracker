@@ -7,16 +7,14 @@ import "./Home.scss";
 import InfoBlock from "./InfoBlock/InfoBlock";
 
 const Home = () => {
-
-
+  const isUserLoading = useAppSelector((state) => state.user.isLoading);
   return (
     <div className="home-container">
-      <Dashboard />
+      {!isUserLoading && <Dashboard />}
       <div className="home-container__middle">
         <AddHabit />
         <InfoBlock />
       </div>
-      
     </div>
   );
 };

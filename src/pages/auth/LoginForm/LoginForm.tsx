@@ -1,8 +1,8 @@
 import { Form, Formik } from "formik";
 
 import * as Yup from "yup";
-import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
-import { loginUser } from "../../../store/actions/user-actions";
+import { useAppDispatch } from "../../../hooks/hooks";
+import { loginUser } from "../../../store/actions/auth-actions";
 import "../RegisterForm/RegisterForm.scss";
 import TextField from "../TextField";
 

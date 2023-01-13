@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import "./RegisterForm.scss";
 import TextField from "../TextField";
-import { createUser } from "../../../store/actions/user-actions";
+import { signUpUser } from "../../../store/actions/auth-actions";
 import { useAppDispatch } from "../../../hooks/hooks";
 
 const RegisterForm = () => {
@@ -23,7 +23,7 @@ const RegisterForm = () => {
   ) => {
     if (confirmPassword === password) {
       dispatch(
-        createUser({
+        signUpUser({
           email,
           name,
           password,

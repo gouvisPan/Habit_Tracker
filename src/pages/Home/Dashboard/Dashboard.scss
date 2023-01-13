@@ -11,22 +11,28 @@
   gap: 0.5rem;
   color: white;
 
-  h1{
+  h1 {
     margin-bottom: 3rem;
   }
-  button {
-    margin-top: 2rem;
-    align-self: flex-end;
-    background-color: $color-grey-white;
-    color: $color-grey-black;
-    padding: 0.5rem 1rem;
 
-    &:hover {
-      cursor: pointer;
-      filter: brightness(105%);
-    }
-    &:active {
-      filter: brightness(95%);
+  &__buttons {
+    display: flex;
+    align-self: flex-end;
+    gap: 5rem;
+    button {
+      margin-top: 2rem;
+      align-self: flex-end;
+      background-color: $color-grey-white;
+      color: $color-grey-black;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(105%);
+      }
+      &:active {
+        filter: brightness(95%);
+      }
     }
   }
 }
@@ -46,16 +52,15 @@
   overflow-x: hidden;
   color: $color-grey-black;
 
-  
   &::-webkit-scrollbar {
     display: none;
   }
-  
-  &__habit-name-c{
-      font-size: 20px;
-      font-weight: 700;
+
+  &__habit-name-c {
+    font-size: 20px;
+    font-weight: 700;
   }
-  
+
   &__week-day-name {
     justify-self: center;
   }

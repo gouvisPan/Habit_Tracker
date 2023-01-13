@@ -12,6 +12,7 @@ import { persistStore, persistCombineReducers } from "redux-persist";
 import userSlice from "./userSlice";
 import uiSlice from "./ui-slice";
 import habitSlice from "./habitSlice";
+import authSlice from "./authSlice";
 
 const persistConfig = {
   key: "root",
@@ -21,7 +22,8 @@ const persistConfig = {
 const userReducer = {
   user: userSlice.reducer,
   ui: uiSlice.reducer,
-  habits: habitSlice.reducer
+  habits: habitSlice.reducer,
+  auth: authSlice.reducer,
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, userReducer);

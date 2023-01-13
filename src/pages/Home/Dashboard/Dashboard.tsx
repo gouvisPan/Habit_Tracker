@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import dummyHabitsList from "../../../model/tmpData";
 import HabitRow from "./HabitRow/HabitRow";
 import "./Dashboard.scss";
-import { useAppSelector } from "../../../hooks/hooks";
-import { Habit } from "../../../model/Habit";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import AddHabitsPrompt from "./AddHabitsPrompt/AddHabitsPrompt";
+import { createHabitList } from "../../../store/actions/habit-actions";
+import FSHabits from "../../../model/interfaces/FSHabits";
 
 const days: string[] = [
   "Monday",
@@ -17,31 +17,43 @@ const days: string[] = [
   "",
 ];
 
-
 const Dashboard: React.FC<{}> = () => {
-  const clickSaveHandler = () => {};
+  const dispatcher = useAppDispatch();
   const habits = useAppSelector((state) => state.habits.habitList);
+  const uid: string = useAppSelector((state) => state.user.data!.uid);
+  console.log(uid);
+
+  const clickSaveHandler = () => {
+    if (habits) dispatcher(createHabitList(habits));
+  };
+
+  const clickNewWeekHandler = () => {};
 
   return (
     <div className="dash">
       {!habits && <AddHabitsPrompt />}
-      {habits && 
-      <Fragment>
-      <h1>Weekly Dash</h1>
-      <div className="dash-container">
-        <div className="dash-container__habit-name-c">
-          <span>My Habits</span>
-        </div>
-        {days.map((d) => (
-          <span className="dash-container__week-day-name">{d}</span>
-        ))}
-        {habits.map((habit) => (
-          <HabitRow habit={habit} />
-        ))}
-      </div>
-      <button onClick={clickSaveHandler}>New Week</button>
-      </Fragment>
-      }
+      {habits && (
+        <Fragment>
+          <h1>Weekly Dash</h1>
+          <div className="dash-container">
+            <div className="dash-container__habit-name-c">
+              <span>My Habits</span>
+            </div>
+            {days.map((d) => (
+              <span className="dash-container__week-day-name" key={d}>
+                {d}
+              </span>
+            ))}
+            {habits.map((habit) => (
+              <HabitRow habit={habit} key={habit.id} />
+            ))}
+          </div>
+          <div className="dash__buttons">
+            <button onClick={clickSaveHandler}>New Week</button>
+            <button onClick={clickSaveHandler}>Save</button>
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 };

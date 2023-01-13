@@ -17,10 +17,9 @@ const HabitRow: React.FC<HabitRowProps> = (props) => {
   const clickStateHandler = (i: number) => {
     const newState = [...habit.weeklyState];
     newState[i] = !habit.weeklyState[i];
-    const newHabit = {...habit}
+    const newHabit = { ...habit };
     newHabit.weeklyState = newState;
-    dispatch(habitActions.updateHabit(newHabit))
-   
+    dispatch(habitActions.updateHabit(newHabit));
   };
 
   const deleteClickHandler = () => {
@@ -34,6 +33,7 @@ const HabitRow: React.FC<HabitRowProps> = (props) => {
         <div
           className="dash-container__habit-checkbox"
           onClick={() => clickStateHandler(i)}
+          key={i}
         >
           <input type="checkbox" checked={day} />
           <label></label>

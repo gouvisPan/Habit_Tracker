@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { Habit } from "../../../model/Habit";
+import { createHabitList } from "../../../store/actions/habit-actions";
 import { habitActions } from "../../../store/reducers/habitSlice";
 import { userActions } from "../../../store/reducers/userSlice";
 import TextField from "../../auth/TextField";
@@ -23,6 +24,7 @@ const AddHabit = () => {
     name: "",
     desiredPerc: 100,
   };
+
   const onSubmitHandler = (values: FormValues) => {
     const tmpHabit: Habit = {
       id: Math.random().toString(),
@@ -33,11 +35,10 @@ const AddHabit = () => {
       weeklyState: [false, false, false, false, false, false, false],
     };
     console.log(tmpHabit);
+
     dispatch(habitActions.addHabit(tmpHabit));
   };
-  const clear = () =>{
-    dispatch(habitActions.clearHabits());
-  }
+
   return (
     <Formik
       initialValues={initialValues}

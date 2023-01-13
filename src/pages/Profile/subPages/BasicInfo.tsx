@@ -20,18 +20,16 @@ const BasicInfo = () => {
     bio: Yup.string().min(15),
   });
 
-  const onSubmit = (name: string, slogan: string, bio: string) => {};
+  const onSubmit = (name: string) => {};
 
   return (
     <Formik
       initialValues={{
         name: user!.name,
-        slogan: user!.slogan,
-        bio: user!.bio,
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        onSubmit(values.name, values.slogan, values.bio);
+        onSubmit(values.name);
       }}
     >
       {(formik) => (
@@ -46,13 +44,7 @@ const BasicInfo = () => {
           <TextField
             name="slogan"
             isLarge={false}
-            pholder={user?.slogan || "Add your slogan here!"}
-            className="basic-info-container__input"
-          />
-          <TextField
-            name="bio"
-            isLarge={true}
-            pholder={user?.bio || "Add your bio here!"}
+            pholder={false || "Add your motivation quote here!"}
             className="basic-info-container__input"
           />
           <button type="submit">Save</button>

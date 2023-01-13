@@ -8,22 +8,20 @@ import LoginForm from "./LoginForm/LoginForm";
 import { useAppSelector } from "../../hooks/hooks";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
-import { userActions } from "../../store/reducers/userSlice";
-import { loginUserWithGoogle } from "../../store/actions/user-actions";
+
 const Auth: React.FC = () => {
   const [whiteCSS, setwhiteCss] = useState("register__left");
   const [colorfulCSS, setColorfulCss] = useState("register__right");
   const [signIn, setSignIn] = useState(true);
-  const dispatch = useAppDispatch();
 
-  const { data, isAuthenticated } = useAppSelector((state) => state.user);
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated && data) {
+    if (isAuthenticated) {
       navigate("/home");
     }
-  }, [isAuthenticated, data]);
+  }, [isAuthenticated, navigate]);
 
   const signInHandler = () => {
     setwhiteCss(`register__left unmountWR`);
@@ -43,29 +41,15 @@ const Auth: React.FC = () => {
     }, 500);
   };
 
-  const googleLoginHandler = () => {
-    dispatch(loginUserWithGoogle());
-  };
-
   const whiteJSX = signIn ? (
     <Fragment>
       <h1>Sign In</h1>
       <LoginForm />
-      <h3>Or</h3>
-      <div className="register__left--google" onClick={googleLoginHandler}>
-        <FcGoogle className="register__left--google__icon" />
-        <span>Login with google</span>
-      </div>
     </Fragment>
   ) : (
     <Fragment>
       <h1>Create Account</h1>
       <RegisterForm />
-      <h3>Or</h3>
-      <div className="register__left--google">
-        <FcGoogle className="register__left--google__icon" />
-        <span>Sign Up with google</span>
-      </div>
     </Fragment>
   );
 

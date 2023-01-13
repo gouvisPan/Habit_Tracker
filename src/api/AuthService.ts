@@ -11,7 +11,7 @@ import {
 import SignUpCredentials from "../model/interfaces/SignupCredentials";
 import SignInCredentials from "../model/interfaces/SignInCredentials";
 
-export const createUser = (
+export const signUpUser = (
   credentials: SignUpCredentials
 ): Promise<UserCredential> => {
   const response = createUserWithEmailAndPassword(
@@ -21,16 +21,6 @@ export const createUser = (
   );
 
   return response;
-};
-export const signInGoogleUser = async () => {
-  signInWithPopup(auth, googleProvider).then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential?.accessToken;
-    const user = result.user;
-
-    const response = { token, user };
-    return response;
-  });
 };
 
 export const signInUser = (

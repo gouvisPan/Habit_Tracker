@@ -1,11 +1,49 @@
-import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { Habit } from "../model/Habit";
+import FSHabits from "../model/interfaces/FSHabits";
+import { v4 as uuidv4 } from "uuid";
+import {
+  doc,
+  onSnapshot,
+  updateDoc,
+  setDoc,
+  deleteDoc,
+  collection,
+  serverTimestamp,
+  getDoc,
+  getDocs,
+  where,
+  orderBy,
+  limit,
+  query,
+} from "firebase/firestore";
 
-export const createHabtis = async (hobies: Habit[]) => {
-  const response = await setDoc(doc(db, "habits"), {
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA",
-  });
+const colletionRef = collection(db, "habitLists");
+
+export const createHabits = async (habits: FSHabits) => {
+  const newFirestoreHabit = {
+    id: habits.uid,
+    habits: habits.habits,
+    createdAt: serverTimestamp(),
+    lastUpdate: serverTimestamp(),
+  };
+
+  try {
+    const habitsRef = doc(colletionRef, habits.uid);
+    await setDoc(habitsRef, newFirestoreHabit);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchHabits = async (uid: string) => {
+  try {
+    const q = query(colletionRef, where("id", "==", uid));
+    const response = await getDocs(q);
+
+    if (response.docs[0]) return response.docs[0].data();
+
+    return undefined;
+  } catch (error) {
+    console.error(error);
+  }
 };

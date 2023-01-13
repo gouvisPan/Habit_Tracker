@@ -1,26 +1,14 @@
-import * as api from "../../api/AuthService";
+import * as api from "../../api/UserCrudService";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import SignUpCredentials from "../../model/interfaces/SignupCredentials";
-import SignInCredentials from "../../model/interfaces/SignInCredentials";
+import User from "../../model/User";
+import { normalizeUser } from "../../helpers/normalizeUser";
 
 export const createUser = createAsyncThunk(
-  "user/signUp",
-  async (credentials: SignUpCredentials, thunkApi) => {
+  "user/create",
+  async (user: User, thunkApi) => {
     try {
-      const response = await api.createUser(credentials);
+      const response = await api.createUser(user);
       console.log(response);
-      return response.user;
-    } catch (error: any) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const loginUserWithGoogle = createAsyncThunk(
-  "user/signInWithGoogle",
-  async (_: void, thunkApi) => {
-    try {
-      const response = await api.signInGoogleUser();
       return response;
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
@@ -28,25 +16,15 @@ export const loginUserWithGoogle = createAsyncThunk(
   }
 );
 
-export const loginUser = createAsyncThunk(
-  "user/signIn",
-  async (credentials: SignInCredentials, thunkApi) => {
+export const fetchUser = createAsyncThunk(
+  "user/fetch",
+  async (uid: string, thunkApi) => {
     try {
-      const response = await api.signInUser(credentials);
-      return response.user;
-    } catch (error: any) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
+      const fetchedUser = await api.fetchUser(uid);
+      console.log(fetchedUser);
+      const nUser = normalizeUser(fetchedUser);
 
-export const logoutUser = createAsyncThunk(
-  "user/signOut",
-  async (_: void, thunkApi) => {
-    try {
-      const response = await api.signOutUser();
-
-      return response;
+      return nUser;
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }

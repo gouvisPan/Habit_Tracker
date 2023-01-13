@@ -7,8 +7,11 @@ import { useEffect } from "react";
 import { userActions } from "../../store/reducers/userSlice";
 
 const Layout = () => {
-  const isLoading = useAppSelector((state) => state.user.isLoading);
-  const error = useAppSelector((state) => state.user.error);
+  const isAuthLoading = useAppSelector((state) => state.auth.isLoading);
+  const isUserLoading = useAppSelector((state) => state.user.isLoading);
+  const isHabitLoading = useAppSelector((state) => state.habits.isLoading);
+
+  const error = useAppSelector((state) => state.auth.error);
   const [isErrorDisplaying, setIsErrorDisplaying] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -27,12 +30,9 @@ const Layout = () => {
     }
   }, [error, dispatch]);
 
-  console.log(error);
-  console.log(isErrorDisplaying);
-
   return (
     <div>
-      {isLoading && <Spinner />}
+      {(isAuthLoading || isUserLoading || isHabitLoading) && <Spinner />}
       {error && isErrorDisplaying && (
         <Notification message={error} type="error" />
       )}

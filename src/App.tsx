@@ -10,17 +10,23 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { userActions } from "./store/reducers/userSlice";
+import { authActions } from "./store/reducers/authSlice";
+import { normalizeUser } from "./helpers/normalizeUser";
 import Profile from "./pages/Profile/Profile";
+import { habitActions } from "./store/reducers/habitSlice";
+import { logoutUser } from "./store/actions/auth-actions";
 
 function App() {
   const dispatch = useAppDispatch();
-  // dispatch(userActions.clearHabits())
+  // dispatch(habitActions.clearHabits());
+  dispatch(logoutUser());
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(userActions.autoLoginUser(user));
+        dispatch(authActions.autoLoginUser());
       } else {
-        dispatch(userActions.setLoginStatus(false));
+        dispatch(authActions.setLoginStatus(false));
         dispatch(userActions.autoLoginUser(null));
       }
     });
