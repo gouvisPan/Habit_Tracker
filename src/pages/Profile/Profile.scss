@@ -17,8 +17,10 @@
     // border-bottom: 5px $color-grey-dark solid;
 
     img {
-      width: 6rem;
+      width: 6.5rem;
       align-self: center;
+      border-radius: 12rem;
+      border: 0.05em solid black;
     }
     h3 {
       font-size: $font-size-ml;

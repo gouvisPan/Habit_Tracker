@@ -1,6 +1,5 @@
 import { db } from "../firebase";
 import FSHabits from "../model/interfaces/FSHabits";
-import { v4 as uuidv4 } from "uuid";
 import {
   doc,
   onSnapshot,

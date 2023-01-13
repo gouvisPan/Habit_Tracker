@@ -26,6 +26,9 @@ const userSlice = createSlice({
     autoLoginUser: (state, action: PayloadAction<User | null>) => {
       state.data = action.payload;
     },
+    clearUser: (state) => {
+      state.data = null;
+    },
     clearErrorState: (state) => {
       state.error = null;
     },

@@ -4,15 +4,33 @@ import placeholder from "../../assets/profile-image-placeholde.png";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { useState } from "react";
 import BasicInfo from "./subPages/BasicInfo";
-import AccountSecurity from "./subPages/AccountSecurity";
 import DeleteAccount from "./subPages/DeleteAccount";
 import Statistics from "./subPages/Statistics/Statistics";
+import avatar1 from "../../assets/avatars/male_avatar_1.svg"
+import avatar2 from "../../assets/avatars/female_avatar_1.svg"
+import avatar3 from "../../assets/avatars/male_avatar_2.svg"
+import avatar4 from "../../assets/avatars/female_avatar_2.svg"
 
 const Profile = () => {
   const dispatch = useAppDispatch();
   const [mountedPage, setMountedPage] = useState(0);
   const user = useAppSelector((state) => state.user.data);
   let mountedJsx = <BasicInfo />;
+  let profileImage ;
+
+    switch (user!.avatar) {
+    case 1:
+      profileImage = avatar1;
+      break;
+    case 2:
+      profileImage = avatar2;
+      break;
+    case 3:
+      profileImage = avatar3;
+      break;
+    case 4:
+      profileImage = avatar4;
+  }
 
   switch (mountedPage) {
     case 0:
@@ -22,9 +40,6 @@ const Profile = () => {
       mountedJsx = <Statistics />;
       break;
     case 2:
-      mountedJsx = <AccountSecurity />;
-      break;
-    case 3:
       mountedJsx = <DeleteAccount />;
   }
 
@@ -32,7 +47,7 @@ const Profile = () => {
     <div className="profile-container c">
       <div className="left">
         <div className="profile-container__basic-info">
-          <img src={placeholder} />
+          <img src={profileImage} />
           <h3>{user?.name}</h3>
         </div>
         <ul className="profile-container__list">
@@ -53,12 +68,6 @@ const Profile = () => {
           <li
             className={mountedPage === 2 ? "profile-container__active" : ""}
             onClick={() => setMountedPage(2)}
-          >
-            Account security
-          </li>
-          <li
-            className={mountedPage === 3 ? "profile-container__active" : ""}
-            onClick={() => setMountedPage(3)}
           >
             Delete Account
           </li>

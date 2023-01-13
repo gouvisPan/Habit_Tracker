@@ -11,7 +11,6 @@ import { auth } from "./firebase";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { userActions } from "./store/reducers/userSlice";
 import { authActions } from "./store/reducers/authSlice";
-import { normalizeUser } from "./helpers/normalizeUser";
 import Profile from "./pages/Profile/Profile";
 import { habitActions } from "./store/reducers/habitSlice";
 import { logoutUser } from "./store/actions/auth-actions";
@@ -24,6 +23,7 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+       
         dispatch(authActions.autoLoginUser());
       } else {
         dispatch(authActions.setLoginStatus(false));

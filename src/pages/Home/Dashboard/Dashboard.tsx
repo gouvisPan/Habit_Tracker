@@ -21,7 +21,6 @@ const Dashboard: React.FC<{}> = () => {
   const dispatcher = useAppDispatch();
   const habits = useAppSelector((state) => state.habits.habitList);
   const uid: string = useAppSelector((state) => state.user.data!.uid);
-  console.log(uid);
 
   const clickSaveHandler = () => {
     if (habits) dispatcher(createHabitList(habits));

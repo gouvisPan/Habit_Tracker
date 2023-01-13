@@ -45,3 +45,13 @@ export const fetchUser = async (uid: string) => {
     console.error(error);
   }
 };
+
+export const deleteUser = async (uid: string) => {
+  try {
+    const userRef = doc(colletionRef, uid);
+    await deleteDoc(doc(db, "users", uid));
+
+  } catch (error) {
+    console.error(error);
+  }
+}

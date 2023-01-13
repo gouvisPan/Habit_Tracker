@@ -7,7 +7,7 @@
   margin-bottom: $page-margin-bottom;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  
   justify-content: space-evenly;
 
   justify-items: flex-end;
@@ -15,9 +15,6 @@
   &__middle {
     display: flex;
     justify-content: space-evenly;
-    gap: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
 
   }
 }

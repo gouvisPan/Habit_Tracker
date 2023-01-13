@@ -1,15 +1,17 @@
-import { auth, googleProvider } from "../firebase";
+import { auth,  } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup,
   signOut,
   UserCredential,
-  GoogleAuthProvider,
+  deleteUser,
+  updatePassword,
+  reauthenticateWithCredential
 } from "firebase/auth";
 
 import SignUpCredentials from "../model/interfaces/SignupCredentials";
 import SignInCredentials from "../model/interfaces/SignInCredentials";
+import { ChangeCredentials } from "../model/interfaces/ChangeCredentials";
 
 export const signUpUser = (
   credentials: SignUpCredentials
@@ -39,3 +41,10 @@ export const signOutUser = (): Promise<void> => {
   const response = signOut(auth);
   return response;
 };
+
+
+export const deleteUserAccount = async () =>{;
+const user = auth.currentUser;
+await deleteUser(user!)
+}
+

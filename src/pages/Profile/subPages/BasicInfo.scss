@@ -21,11 +21,36 @@
     margin-top: 0;
   }
   button {
+    margin-top: 1rem;
     align-self: flex-end;
     background-color: $color-primary;
+    padding: .4rem .6rem;
 
     &:hover {
       cursor: pointer;
     }
   }
+
+  &__images{
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    img{
+      width:6rem;
+      border: .05em black solid;
+      border-radius: 12rem;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+
+.activated{
+  box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.15);
 }

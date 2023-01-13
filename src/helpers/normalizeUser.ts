@@ -3,7 +3,7 @@ import User from "../model/User";
 
 export const normalizeUser = (apiUser: DocumentData | undefined) => {
   let nUser: User | undefined;
-  console.log(apiUser);
+ 
   apiUser
     ? (nUser = {
         uid: apiUser.uid,
