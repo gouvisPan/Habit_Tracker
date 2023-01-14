@@ -1,4 +1,4 @@
-import { auth,  } from "../firebase";
+import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -6,7 +6,7 @@ import {
   UserCredential,
   deleteUser,
   updatePassword,
-  reauthenticateWithCredential
+  reauthenticateWithCredential,
 } from "firebase/auth";
 
 import SignUpCredentials from "../model/interfaces/SignupCredentials";
@@ -42,9 +42,7 @@ export const signOutUser = (): Promise<void> => {
   return response;
 };
 
-
-export const deleteUserAccount = async () =>{;
-const user = auth.currentUser;
-await deleteUser(user!)
-}
-
+export const deleteUserAccount = async () => {
+  const user = auth.currentUser;
+  await deleteUser(user!);
+};

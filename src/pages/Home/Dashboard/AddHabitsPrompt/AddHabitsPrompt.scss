@@ -1,18 +1,18 @@
 @import "../../../../sass/global";
 
-.prompt-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 2rem;
-    &__msg{
-        display: flex;
-        align-items: center;
-        gap: .5rem;
+.prompt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
 
-        &--icon{
-            margin-bottom: -0.1rem;
-        }
+  &__msg {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &--icon {
+      margin-bottom: -0.1rem;
     }
-    
+  }
 }

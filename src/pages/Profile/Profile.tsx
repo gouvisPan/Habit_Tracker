@@ -6,19 +6,18 @@ import { useState } from "react";
 import BasicInfo from "./subPages/BasicInfo";
 import DeleteAccount from "./subPages/DeleteAccount";
 import Statistics from "./subPages/Statistics/Statistics";
-import avatar1 from "../../assets/avatars/male_avatar_1.svg"
-import avatar2 from "../../assets/avatars/female_avatar_1.svg"
-import avatar3 from "../../assets/avatars/male_avatar_2.svg"
-import avatar4 from "../../assets/avatars/female_avatar_2.svg"
+import avatar1 from "../../assets/avatars/male_avatar_1.svg";
+import avatar2 from "../../assets/avatars/female_avatar_1.svg";
+import avatar3 from "../../assets/avatars/male_avatar_2.svg";
+import avatar4 from "../../assets/avatars/female_avatar_2.svg";
 
 const Profile = () => {
-  const dispatch = useAppDispatch();
   const [mountedPage, setMountedPage] = useState(0);
   const user = useAppSelector((state) => state.user.data);
   let mountedJsx = <BasicInfo />;
-  let profileImage ;
+  let profileImage;
 
-    switch (user!.avatar) {
+  switch (user!.avatar) {
     case 1:
       profileImage = avatar1;
       break;
@@ -44,10 +43,10 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile-container c">
+    <div className="c profile-container">
       <div className="left">
         <div className="profile-container__basic-info">
-          <img src={profileImage} />
+          <img src={profileImage} alt="avatar_img" />
           <h3>{user?.name}</h3>
         </div>
         <ul className="profile-container__list">
@@ -86,37 +85,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-{
-  /* <div className="profile-container__secondary-info"></div> */
-}
-// <span className="profile-container__secondary-info--value">
-//           Swap points
-//         </span>
-//         <ToggledInput label="20" />
-//         <span className="profile-container__secondary-info--value">Email</span>
-//         <ToggledInput label="pgoovis@yahoo.com" />
-//         <span className="profile-container__secondary-info--value">Skills</span>
-//         <ToggledInput label="4" />
-//         <span className="profile-container__secondary-info--value">
-//           Bio Headline
-//         </span>
-//         <ToggledInput label="My Headline!!" />
-
-//         <br></br>
-//         {isNotEditing && <br></br>}
-//         {!isNotEditing && (
-//           <button
-//             className="profile-container__secondary-info--button-save"
-//             onClick={handleSubmit}
-//           >
-//             Save
-//           </button>
-//         )}
-
-//         {isNotEditing && (
-//           <MdModeEditOutline
-//             onClick={editHandler}
-//             className="profile-container__secondary-info--icon"
-//           />
-//         )}

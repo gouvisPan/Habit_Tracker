@@ -1,20 +1,14 @@
 @import "../../sass/global";
 
 .home-container {
-  // margin-top: $page-margin-top;
-  // margin-left: $page-margin-horizontal;
-  // margin-right: $page-margin-horizontal;
-  margin-bottom: $page-margin-bottom;
   display: flex;
   flex-direction: column;
-  
   justify-content: space-evenly;
-
   justify-items: flex-end;
 
   &__middle {
     display: flex;
     justify-content: space-evenly;
-
+    height: 45vh;
   }
 }

@@ -1,1 +1,15 @@
-@import "../../Profile.scss";
+@import "../../../../sass/global";
+
+.statistics {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-right: 10rem;
+
+  &__no-habit {
+    margin-top: 8rem;
+    align-self: center;
+    margin-left: 10rem;
+  }
+}

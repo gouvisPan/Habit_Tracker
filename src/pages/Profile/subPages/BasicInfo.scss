@@ -24,33 +24,32 @@
     margin-top: 1rem;
     align-self: flex-end;
     background-color: $color-primary;
-    padding: .4rem .6rem;
+    padding: 0.4rem 0.6rem;
 
     &:hover {
       cursor: pointer;
     }
   }
 
-  &__images{
+  &__images {
     width: 100%;
-    display: flex;  
+    display: flex;
     justify-content: space-between;
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    img{
-      width:6rem;
-      border: .05em black solid;
+    img {
+      width: 6rem;
+      border: 0.05em black solid;
       border-radius: 12rem;
 
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
     }
-
   }
 }
 
-.activated{
-  box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.15);
+.activated {
+  box-shadow: -1px 1px 4px 4px rgba(0, 0, 0, 0.3);
 }

@@ -3,8 +3,12 @@ import { Habit } from "../../../../model/Habit";
 import "./HabitRow.scss";
 import { AiFillDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../../hooks/hooks";
-import { userActions } from "../../../../store/reducers/userSlice";
+
 import { habitActions } from "../../../../store/reducers/habitSlice";
+import {
+  removeHabit,
+  updateHabitList,
+} from "../../../../store/actions/habit-actions";
 
 interface HabitRowProps {
   habit: Habit;
@@ -23,7 +27,7 @@ const HabitRow: React.FC<HabitRowProps> = (props) => {
   };
 
   const deleteClickHandler = () => {
-    dispatch(habitActions.removeHabit(habit.id));
+    dispatch(removeHabit(habit.id));
   };
 
   return (

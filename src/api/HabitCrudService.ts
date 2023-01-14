@@ -1,33 +1,28 @@
 import { db } from "../firebase";
 import FSHabits from "../model/interfaces/FSHabits";
+import { auth } from "../firebase";
 import {
   doc,
-  onSnapshot,
-  updateDoc,
   setDoc,
-  deleteDoc,
   collection,
   serverTimestamp,
-  getDoc,
   getDocs,
   where,
-  orderBy,
-  limit,
   query,
 } from "firebase/firestore";
+import { Habit } from "../model/Habit";
 
 const colletionRef = collection(db, "habitLists");
 
-export const createHabits = async (habits: FSHabits) => {
+export const setHabits = async (habits: Habit[]) => {
   const newFirestoreHabit = {
-    id: habits.uid,
-    habits: habits.habits,
+    id: auth.currentUser!.uid,
+    habits,
     createdAt: serverTimestamp(),
     lastUpdate: serverTimestamp(),
   };
-
   try {
-    const habitsRef = doc(colletionRef, habits.uid);
+    const habitsRef = doc(colletionRef, newFirestoreHabit.id);
     await setDoc(habitsRef, newFirestoreHabit);
   } catch (error) {
     console.error(error);

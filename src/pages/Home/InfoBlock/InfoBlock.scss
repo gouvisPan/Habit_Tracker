@@ -1,25 +1,25 @@
 @import "../../../sass/global";
 
 .info-block {
-  flex-grow: .8;
-  box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.15);
+  flex-grow: 0.8;
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.15);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  &__perc{
+  &__perc {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    h3{ 
-      margin-top: -.6rem;
+    h3 {
+      margin-top: -0.6rem;
     }
-    span{
+    span {
       font-weight: 900;
       font-size: 128px;
     }
   }
-
 }

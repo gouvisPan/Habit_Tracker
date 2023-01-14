@@ -1,13 +1,12 @@
 @import "../../sass/global";
 
 .profile-container {
-  box-shadow: 2px 2px 5px 2px rgba($color: #000000, $alpha: 0.1);
   display: flex;
   flex-direction: row;
   grid-template-columns: 1fr 5fr;
-  
+
   &__basic-info {
-    background-color: $color-primary-light;
+    background-color: $color-primary;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -30,22 +29,26 @@
   }
   &__list {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     list-style: none;
     padding: 0.3rem 0 0 0;
-    border-top: 1px solid $color-primary-c-light;
-    background-color: $color-primary-c-light;
+    border-top: 1px solid $color-primary-c;
+    background-color: $color-primary-c-dark;
     margin: -0.3rem 0 0 0;
 
     li {
-      font-weight: 500;
+      font-weight: 700;
+      font-size: 20px;
       padding: 0.5rem 1.5rem;
+      color: white;
+
       &:hover {
         cursor: pointer;
-        color: white;
-        background-color: $color-primary-light;
+        color: black;
+        background-color: $color-primary-c-dark;
         transition: 0.3s ease-in-out;
       }
     }
@@ -84,13 +87,9 @@
   }
 
   &__page {
-    margin-bottom: 10rem;
+    height: 100%;
   }
-
-
 }
-
-
 
 .left {
   width: 17vw;

@@ -3,8 +3,10 @@ import HabitRow from "./HabitRow/HabitRow";
 import "./Dashboard.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import AddHabitsPrompt from "./AddHabitsPrompt/AddHabitsPrompt";
-import { createHabitList } from "../../../store/actions/habit-actions";
-import FSHabits from "../../../model/interfaces/FSHabits";
+import {
+  renewWeeklyState,
+  setHabitList,
+} from "../../../store/actions/habit-actions";
 
 const days: string[] = [
   "Monday",
@@ -20,18 +22,20 @@ const days: string[] = [
 const Dashboard: React.FC<{}> = () => {
   const dispatcher = useAppDispatch();
   const habits = useAppSelector((state) => state.habits.habitList);
-  const uid: string = useAppSelector((state) => state.user.data!.uid);
+  const showWeek = habits && habits.length !== 0;
 
   const clickSaveHandler = () => {
-    if (habits) dispatcher(createHabitList(habits));
+    if (habits) dispatcher(setHabitList(habits));
   };
 
-  const clickNewWeekHandler = () => {};
+  const clickNewWeekHandler = () => {
+    dispatcher(renewWeeklyState());
+  };
 
   return (
     <div className="dash">
-      {!habits && <AddHabitsPrompt />}
-      {habits && (
+      {!showWeek && <AddHabitsPrompt />}
+      {showWeek && (
         <Fragment>
           <h1>Weekly Dash</h1>
           <div className="dash-container">
@@ -48,7 +52,7 @@ const Dashboard: React.FC<{}> = () => {
             ))}
           </div>
           <div className="dash__buttons">
-            <button onClick={clickSaveHandler}>New Week</button>
+            <button onClick={clickNewWeekHandler}>New Week</button>
             <button onClick={clickSaveHandler}>Save</button>
           </div>
         </Fragment>

@@ -2,16 +2,14 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useAppDispatch } from "../../../hooks/hooks";
 import { Habit } from "../../../model/Habit";
-import { createHabitList } from "../../../store/actions/habit-actions";
+import { AddFormValues } from "../../../model/interfaces/AddFormValues";
+import {
+  addHabit,
+  updateHabitList,
+} from "../../../store/actions/habit-actions";
 import { habitActions } from "../../../store/reducers/habitSlice";
-import { userActions } from "../../../store/reducers/userSlice";
 import TextField from "../../auth/TextField";
 import "./AddHabit.scss";
-
-interface FormValues {
-  name: string;
-  desiredPerc: number;
-}
 
 const AddHabit = () => {
   const dispatch = useAppDispatch();
@@ -20,23 +18,13 @@ const AddHabit = () => {
     name: Yup.string().required("Name is required"),
     desiredPerc: Yup.string().min(0).max(100),
   });
-  const initialValues: FormValues = {
+  const initialValues: AddFormValues = {
     name: "",
     desiredPerc: 100,
   };
 
-  const onSubmitHandler = (values: FormValues) => {
-    const tmpHabit: Habit = {
-      id: Math.random().toString(),
-      name: values.name,
-      desiredPerc: values.desiredPerc,
-      totalDays: 0,
-      totalChecks: 0,
-      weeklyState: [false, false, false, false, false, false, false],
-    };
-    console.log(tmpHabit);
-
-    dispatch(habitActions.addHabit(tmpHabit));
+  const onSubmitHandler = (values: AddFormValues) => {
+    dispatch(addHabit(values));
   };
 
   return (
@@ -56,7 +44,7 @@ const AddHabit = () => {
               <span>Habit Name</span>
               <TextField pholder="" name="name" type="text" />
               <span>Consistensy Goal</span>
-              <TextField pholder="" name="desiredPerc" type="text" />
+              <TextField pholder="" name="desiredPerc" type="number" />
             </div>
             <button
               type="submit"

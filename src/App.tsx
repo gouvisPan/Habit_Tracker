@@ -18,12 +18,11 @@ import { logoutUser } from "./store/actions/auth-actions";
 function App() {
   const dispatch = useAppDispatch();
   // dispatch(habitActions.clearHabits());
-  dispatch(logoutUser());
+  // dispatch(logoutUser());
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       
         dispatch(authActions.autoLoginUser());
       } else {
         dispatch(authActions.setLoginStatus(false));

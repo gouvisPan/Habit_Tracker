@@ -1,7 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Habit } from "../../model/Habit";
 import AddHabit from "../../pages/Home/AddHabit/AddHabit";
-import { createHabitList, fetchHabitList } from "../actions/habit-actions";
+import {
+  setHabitList,
+  fetchHabitList,
+  updateHabitList,
+  addHabit,
+  renewWeeklyState,
+} from "../actions/habit-actions";
 
 interface habitSliceState {
   isLoading: boolean;
@@ -15,7 +21,7 @@ const initialState: habitSliceState = {
   isLoading: false,
   isSuccess: false,
   error: null,
-  habitList: null,
+  habitList: [],
   habitListHistory: null,
 };
 
@@ -26,7 +32,7 @@ const habitSlice = createSlice({
     clearErrorState: (state) => {
       state.error = null;
     },
-    updateHabitList: (state, action: PayloadAction<Habit[]>) => {
+    updateHabitList: (state, action: PayloadAction<Habit[] | null>) => {
       state.habitList = action.payload;
     },
     updateHabit: (state, action: PayloadAction<Habit>) => {
@@ -35,45 +41,24 @@ const habitSlice = createSlice({
         state.habitList[i] = action.payload;
       }
     },
-    addHabit: (state, action: PayloadAction<Habit>) => {
-      if (state.habitList) {
-        state.habitList!.push(action.payload);
-      } else {
-        state.habitList = [action.payload];
-      }
-    },
-    removeHabit: (state, action: PayloadAction<string>) => {
-      if (state.habitList?.filter((h) => h.id !== action.payload)) {
-        state.habitList = state.habitList?.filter(
-          (h) => h.id !== action.payload
-        );
-        if (state.habitList.length === 0) state.habitList = null;
-      }
-    },
     clearHabits: (state) => {
       state.habitList = null;
     },
   },
   extraReducers(builder) {
     builder
-      .addCase(createHabitList.pending, (state) => {
+      .addCase(setHabitList.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(
-        createHabitList.fulfilled,
-        (state, action: PayloadAction<any>) => {
-          state.isLoading = false;
-          state.isSuccess = true;
-        }
-      )
-      .addCase(
-        createHabitList.rejected,
-        (state, action: PayloadAction<any>) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        }
-      )
+      .addCase(setHabitList.fulfilled, (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+      })
+      .addCase(setHabitList.rejected, (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchHabitList.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -89,7 +74,58 @@ const habitSlice = createSlice({
       .addCase(fetchHabitList.rejected, (state, action: PayloadAction<any>) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(updateHabitList.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        updateHabitList.fulfilled,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          state.habitList = action.payload;
+        }
+      )
+      .addCase(
+        updateHabitList.rejected,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      )
+      .addCase(addHabit.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(addHabit.fulfilled, (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.habitList = action.payload;
+      })
+      .addCase(addHabit.rejected, (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(renewWeeklyState.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        renewWeeklyState.fulfilled,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          state.habitList = action.payload;
+        }
+      )
+      .addCase(
+        renewWeeklyState.rejected,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      );
   },
 });
 

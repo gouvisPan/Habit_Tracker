@@ -1,18 +1,14 @@
 @import "./variables";
 @import "./mixins";
 @import "./typography";
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: hidden;
-  // background-color: $color;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -21,7 +17,6 @@ code {
 .page {
   margin-top: 4rem;
 }
-
 
 .c {
   margin: $margin-nav-fit 0 6rem 0;

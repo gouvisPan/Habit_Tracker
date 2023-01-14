@@ -1,13 +1,12 @@
 @import "../../../sass/global";
 
 .add-form-container {
-  box-shadow: -1px 2px 5px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: -3px 2px 2px 3px rgba(0, 0, 0, 0.25);
   background-color: $color-primary-c-dark;
-  padding: 0.5rem ;
+  padding: 0.5rem;
   padding-bottom: 2rem;
   flex-grow: 0.3;
   color: white;
-  
 
   &__content {
     display: flex;
@@ -23,16 +22,13 @@
       flex-direction: column;
       align-self: center;
       gap: 1rem;
-
-      input {
-      }
     }
 
     &--submit-btn {
       background-color: $color-primary-dark;
-      padding: .5rem;
-      margin-top: 2rem;
-      width: 6rem;
+      padding: 0.5rem;
+      margin-top: 3rem;
+      width: 8rem;
       align-self: center;
       &:hover {
         cursor: pointer;
@@ -44,8 +40,8 @@
     }
     &--submit-clr {
       position: fixed;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
     }
   }
 }
