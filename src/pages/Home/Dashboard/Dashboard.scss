@@ -6,15 +6,24 @@
   align-items: center;
   padding: 0 7rem;
   background: $color-primary-gradient;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 2rem;
   gap: 0.5rem;
   color: white;
 
-  h1 {
-    margin-bottom: 3rem;
-  }
+  &__top {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: {
+      bottom: 0.5rem;
+      top: 2rem;
+    }
 
+    h1 {
+      margin: 0;
+    }
+  }
   &__buttons {
     display: flex;
     align-self: flex-end;
@@ -39,15 +48,13 @@
 .dash-container {
   background-color: $color-grey-white;
   width: 100%;
-  display: grid;
-  column-gap: 3rem;
-  row-gap: 2rem;
-  justify-items: start;
-  grid-template-columns: 4fr repeat(7, 1fr) 0.5fr;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: 1em;
-  padding-bottom: 2rem;
+  padding-right: 0;
   border-radius: 12px;
-  max-height: 30vh;
+  max-height: 25vh;
   overflow-y: scroll;
   overflow-x: hidden;
   color: $color-grey-black;
@@ -55,14 +62,140 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.static {
+  display: flex;
+  gap: 1.3rem;
+  width: 100%;
 
   &__habit-name-c {
-    font-size: 20px;
+    width: 26.5rem;
     font-weight: 700;
+
+    span {
+      font-size: 24px;
+    }
   }
 
-  &__week-day-name {
-    justify-self: center;
-    position: sticky;
+  &__week {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &--day-name {
+      width: 6rem;
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      justify-self: center;
+      text-align: center;
+    }
+  }
+  &__dummy {
+    width: 3rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .dash {
+    padding: 0 0 3rem 0;
+    width: 100%;
+    max-height: 65vh;
+  }
+}
+@media screen and (max-width: 1030px) {
+  .dash {
+    max-height: 65vh;
+
+    &__buttons {
+      display: flex;
+      align-self: center;
+      gap: 5rem;
+
+      button {
+        margin-top: 2rem;
+        align-self: flex-end;
+        width: 8rem;
+        background-color: $color-grey-white;
+        color: $color-grey-black;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+  .dash-container {
+    padding: 1em 0 0 0;
+    border-radius: 0;
+    padding-bottom: 2rem;
+  }
+
+  .static {
+    gap: 1.3rem;
+    width: 100%;
+
+    &__habit-name-c {
+      padding-left: 0.5rem;
+      width: 6rem;
+      font-weight: 700;
+
+      span {
+        font-size: 24px;
+      }
+    }
+
+    &__week {
+      &--day-name {
+        width: 2.4rem;
+        font-weight: 600;
+        font-size: 17px;
+      }
+    }
+    &__dummy {
+      width: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .static {
+    gap: 1.3rem;
+    width: 100%;
+
+    &__habit-name-c {
+      padding-left: 0.5rem;
+      width: 3.9rem;
+
+      span {
+        font-size: 24px;
+      }
+    }
+
+    &__week {
+      &--day-name {
+        width: 2.4rem;
+        font-weight: 600;
+        font-size: 17px;
+      }
+    }
+    &__dummy {
+      width: 1rem;
+    }
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 700px) {
+  .dash {
+    padding: 0 0 3rem 0;
+    width: 100%;
+    max-height: 100vh;
+    height: 140vh;
+  }
+
+  .dash-container {
+    padding: 1em 0 0 0;
+    border-radius: 0;
+    max-height: 45vh;
+    padding-bottom: 5rem;
   }
 }

@@ -1,14 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Habit } from "../../../../model/Habit";
 import "./HabitRow.scss";
 import { AiFillDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../../hooks/hooks";
 
 import { habitActions } from "../../../../store/reducers/habitSlice";
-import {
-  removeHabit,
-  updateHabitList,
-} from "../../../../store/actions/habit-actions";
+import { removeHabit } from "../../../../store/actions/habit-actions";
 
 interface HabitRowProps {
   habit: Habit;
@@ -32,19 +29,27 @@ const HabitRow: React.FC<HabitRowProps> = (props) => {
 
   return (
     <Fragment>
-      <div className="dash-container__habit-name">{habit.name} </div>
-      {habit.weeklyState.map((day, i) => (
-        <div
-          className="dash-container__habit-checkbox"
-          onClick={() => clickStateHandler(i)}
-          key={i}
-        >
-          <input type="checkbox" checked={day} />
-          <label></label>
+      <div className="row-container">
+        <div className="row-container__habit-name">{habit.name} </div>
+        <div className="row-container--week">
+          {habit.weeklyState.map((day, i) => (
+            <div className="checkbox-wrapper">
+              <div
+                className="row-container--week__habit-checkbox"
+                onClick={() => clickStateHandler(i)}
+                key={i}
+              >
+                <input type="checkbox" checked={day} />
+                <label></label>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <div className="dash-container__icon" onClick={deleteClickHandler}>
-        <AiFillDelete />
+        <div className="row-container__icon-wrapper">
+          <div className="row-container__icon" onClick={deleteClickHandler}>
+            <AiFillDelete className="row-container__icon--del" />
+          </div>
+        </div>
       </div>
     </Fragment>
   );

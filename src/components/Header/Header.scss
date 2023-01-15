@@ -8,16 +8,6 @@
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  
-
-  &__logo {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 16rem;
-    margin-top: -5rem;
-    transform: translateX(-50%);
-  }
 
   &__logout {
     color: $color-primary;
@@ -35,6 +25,29 @@
   }
 }
 
-.white{
+.white {
   color: white;
+}
+@media screen and (max-width: 1200px) {
+  .header-container {
+    flex-direction: row-reverse;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header-container {
+    position: static;
+    align-self: center;
+    align-items: center;
+    gap: 0.8rem;
+    transform: translateX(30%);
+    flex-direction: row-reverse;
+    a {
+      color: white;
+    }
+
+    &__logout {
+      color: white;
+      font-size: 32px;
+    }
+  }
 }

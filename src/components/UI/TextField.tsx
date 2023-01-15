@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorMessage, FormikProps, FormikValues, useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 import "./TextField.scss";
 
 interface textFieldProps {

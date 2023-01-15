@@ -4,7 +4,7 @@ export const renewWeek = (habits: Habit[]) => {
   const newListSTR = JSON.stringify(habits); //Deep copying to copy all the nested objects
   const newList: Habit[] = JSON.parse(newListSTR);
 
-  newList.forEach((habit, i) => {
+  newList.forEach((habit) => {
     habit.totalDays += 7;
     habit.totalChecks += habit.weeklyState.reduce(
       (total, currentValue) => total + (currentValue ? 1 : 0),

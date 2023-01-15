@@ -10,28 +10,24 @@ const RegisterForm = () => {
 
   const validate = Yup.object({
     name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Email is invalid").required("Email is required"),
+    email: Yup.string()
+      .email("Email is invalid, enter a valid email.")
+      .required("Email is required"),
     password: Yup.string()
-      .max(23, "Pasword must be up to 23 characters")
-      .required("Password is required"),
+      .required("Please enter your password.")
+      .min(6, "Your password must be at least 6 characters."),
+    confirmPassword: Yup.string()
+      .required("Please retype your password.")
+      .oneOf([Yup.ref("password")], "Your passwords do not match, try again. "),
   });
-  const onSubmitHandler = (
-    email: string,
-    name: string,
-    password: string,
-    confirmPassword: string
-  ) => {
-    if (confirmPassword === password) {
-      dispatch(
-        signUpUser({
-          email,
-          name,
-          password,
-        })
-      );
-    } else {
-      console.log("PASSWORDS DOESNT MATCH");
-    }
+  const onSubmitHandler = (email: string, name: string, password: string) => {
+    dispatch(
+      signUpUser({
+        email,
+        name,
+        password,
+      })
+    );
   };
 
   return (
@@ -44,12 +40,7 @@ const RegisterForm = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        onSubmitHandler(
-          values.email,
-          values.name,
-          values.password,
-          values.confirmPassword
-        );
+        onSubmitHandler(values.email, values.name, values.password);
       }}
     >
       {(formik) => (

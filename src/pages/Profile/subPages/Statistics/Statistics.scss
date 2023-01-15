@@ -13,3 +13,16 @@
     margin-left: 10rem;
   }
 }
+
+@media screen and (max-width: 1030px) {
+  .statistics {
+    padding-top: 0.3rem;
+    padding-right: 2rem;
+
+    &__no-habit {
+      margin-top: 8rem;
+      align-self: center;
+      margin-left: 1rem;
+    }
+  }
+}

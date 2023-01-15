@@ -5,7 +5,10 @@
   left: 0%;
   width: 30vw;
   font-size: 16px;
-  color: $color-grey-darker;
+  font-weight: 700;
+  color: $color-primary-lighter;
+
+  background-color: $color-grey-darker;
   letter-spacing: 0.5px;
   font-weight: 600;
   border-radius: 0 0.4rem 0 0;
@@ -15,13 +18,11 @@
   margin-top: -0.1rem;
   padding: 0.2rem 1rem;
   z-index: 4;
-  animation: 6s alternate slidein;
-
-  border: $color-primary-lighter 1px solid;
+  animation: 5s alternate slidein;
 }
 
 .error {
-  border-right: rgb(150, 25, 25) 4px solid;
+  border-right: rgb(150, 25, 25) 8px solid;
 }
 
 .success {
@@ -44,5 +45,11 @@
   }
   100% {
     bottom: -10rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .notification {
+    width: 70vw;
   }
 }

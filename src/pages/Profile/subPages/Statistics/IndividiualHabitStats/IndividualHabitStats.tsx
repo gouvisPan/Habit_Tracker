@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HabitStatistics } from "../../../../../model/interfaces/HabitStatistics";
 import "./IndividualHabitStats.scss";
 interface IndividualHabitStatsProps {

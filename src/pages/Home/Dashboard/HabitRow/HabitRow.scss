@@ -1,9 +1,14 @@
 @import "../../../../sass/global";
 
-.dash-container {
+.row-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+
   &__habit-name {
-    background-color: $color-grey-white;
-    width: 100%;
+    width: 25rem;
+    min-width: 12rem;
     padding: 0.2rem 0.4rem;
   }
 
@@ -12,56 +17,135 @@
     align-items: center;
     background-color: $color-primary-c;
     color: white;
-    width: 100%;
-    height: 100%;
-    transform: translateX(99%);
-    padding-left: 0.5rem;
+    transform: translateX(40%);
+    padding: 0.5rem 1rem;
+    margin-right: -1.3rem;
     transition: 0.2s ease-in;
 
     &:hover {
       cursor: pointer;
-      transform: translateX(35%);
+      transform: translateX(-25%);
       transition: 0.2s ease-in;
+    }
+
+    &--del {
+      transform: translateX(-50%);
     }
   }
 
-  &__habit-checkbox {
-    justify-self: center;
-    align-self: center;
-  }
-  &__habit-checkbox input[type="checkbox"]:hover + label::before {
-    cursor: pointer;
-    background-color: $color-primary-lightest;
-  }
-  &__habit-checkbox input[type="checkbox"]:focus + label::before {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  }
-  &__habit-checkbox input[type="checkbox"]:checked + label::before {
-    background-color: $color-grey-white;
-    content: "\2713";
+  &--week {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $color-primary;
+    justify-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &__habit-checkbox input[type="checkbox"]:hover + label::before {
+      cursor: pointer;
+      background-color: $color-primary-lightest;
+    }
+
+    &__habit-checkbox input[type="checkbox"]:focus + label::before {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    &__habit-checkbox input[type="checkbox"]:checked + label::before {
+      background-color: $color-grey-white;
+      content: "\2713";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-primary;
+    }
+
+    input {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+    }
+    label {
+      cursor: pointer;
+      display: flex;
+    }
+    label::before {
+      content: "";
+      width: 1.2em;
+      height: 1.2em;
+      border: 0.07em solid black;
+      border-radius: 2em;
+    }
+    label:hover::before {
+      background-color: $color-primary-lightest;
+    }
+  }
+}
+
+.checkbox-wrapper {
+  width: 5.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .row-container {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    min-height: 2.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__habit-name {
+      width: 5rem;
+      min-width: 3rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    &__icon-wrapper {
+      width: 0;
+    }
+    &__icon {
+      align-items: center;
+      transform: translateX(-60%);
+      padding: 0.5rem 1rem;
+      margin-right: -1.3rem;
+      transition: 0.2s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        transform: translateX(25%);
+        transition: 0.2s ease-in;
+      }
+
+      &--del {
+        transform: translateX(-50%);
+      }
+    }
+
+    &--week {
+      display: flex;
+      justify-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
-  input {
-    cursor: pointer;
-    opacity: 0;
-    position: absolute;
+  .checkbox-wrapper {
+    width: 2.4rem;
   }
-  label {
-    cursor: pointer;
-    display: flex;
-  }
-  label::before {
-    content: "";
-    width: 1.2em;
-    height: 1.2em;
-    border: 0.07em solid black;
-    border-radius: 2em;
-  }
-  label:hover::before {
-    background-color: $color-primary-lightest;
+}
+
+@media only screen and (orientation: landscape) {
+  .row-container {
+    padding: 1rem 0;
+    overflow: hidden;
+    height: fit-content;
+
+    &__habit-name {
+      padding: 0rem 0.4rem;
+      align-self: center;
+    }
   }
 }

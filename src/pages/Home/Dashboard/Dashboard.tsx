@@ -7,8 +7,10 @@ import {
   renewWeeklyState,
   setHabitList,
 } from "../../../store/actions/habit-actions";
+import useWindowSize from "../../../hooks/useWindowSize";
+import Header from "../../../components/Header/Header";
 
-const days: string[] = [
+const daysLong: string[] = [
   "Monday",
   "Tuesday",
   "Wednesday",
@@ -16,13 +18,15 @@ const days: string[] = [
   "Friday",
   "Saturday",
   "Sunday",
-  "",
 ];
 
-const Dashboard: React.FC<{}> = () => {
+const daysShort: string[] = ["M", "T", "W", "T", "F", "S", "S"];
+
+const Dashboard2: React.FC<{}> = () => {
   const dispatcher = useAppDispatch();
   const habits = useAppSelector((state) => state.habits.habitList);
   const showWeek = habits && habits.length !== 0;
+  const [height, width] = useWindowSize();
 
   const clickSaveHandler = () => {
     if (habits) dispatcher(setHabitList(habits));
@@ -37,16 +41,31 @@ const Dashboard: React.FC<{}> = () => {
       {!showWeek && <AddHabitsPrompt />}
       {showWeek && (
         <Fragment>
-          <h1>Weekly Dash</h1>
-          <div className="dash-container">
-            <div className="dash-container__habit-name-c">
-              <span>My Habits</span>
+          <div className="dash__top">
+            <h1>Weekly Dash</h1>
+            {width < 701 && showWeek && <Header />}
+          </div>
+          <div className="static">
+            <div className="static__habit-name-c">
+              <span>{width > 700 && "My"} Habits</span>
             </div>
-            {days.map((d) => (
-              <span className="dash-container__week-day-name" key={d}>
-                {d}
-              </span>
-            ))}
+            <div className="static__week">
+              {width > 700 &&
+                daysLong.map((d) => (
+                  <span className="static__week--day-name" key={d}>
+                    {d}
+                  </span>
+                ))}
+              {width < 701 &&
+                daysShort.map((d) => (
+                  <span className="static__week--day-name" key={d}>
+                    {d}
+                  </span>
+                ))}
+            </div>
+            <div className="static__dummy"></div>
+          </div>
+          <div className="dash-container">
             {habits.map((habit) => (
               <HabitRow habit={habit} key={habit.id} />
             ))}
@@ -61,4 +80,4 @@ const Dashboard: React.FC<{}> = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard2;

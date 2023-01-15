@@ -1,4 +1,4 @@
-@import "../../../sass/global";
+@import "../../../../sass/global";
 
 .delete-account-container {
   margin-left: 5rem;
@@ -31,6 +31,30 @@
 
     &:active {
       filter: brightness(80%);
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .delete-account-container {
+    width: 90%;
+    margin: auto;
+    margin-top: 7rem;
+
+    h2 {
+      font-size: $font-size-l;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+
+    button {
+      background-color: brown;
+      position: fixed;
+      bottom: 2.2rem;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

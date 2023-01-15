@@ -18,9 +18,9 @@ export const createUser = createAsyncThunk(
 
 export const fetchUser = createAsyncThunk(
   "user/fetch",
-  async (uid: string, thunkApi) => {
+  async (_: void, thunkApi) => {
     try {
-      const fetchedUser = await api.fetchUser(uid);;
+      const fetchedUser = await api.fetchUser();
       const nUser = normalizeUser(fetchedUser);
       return nUser;
     } catch (error: any) {
@@ -28,16 +28,3 @@ export const fetchUser = createAsyncThunk(
     }
   }
 );
-
-// export const fetchUser = createAsyncThunk(
-//   "user/fetch",
-//   async (uid: string, thunkApi) => {
-//     try {
-//       const fetchedUser = await api.fetchUser(uid);;
-//       const nUser = normalizeUser(fetchedUser);
-//       return nUser;
-//     } catch (error: any) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );

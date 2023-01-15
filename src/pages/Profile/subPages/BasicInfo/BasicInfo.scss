@@ -1,4 +1,4 @@
-@import "../../../sass/global";
+@import "../../../../sass/global";
 
 .basic-info-container {
   display: flex;
@@ -52,4 +52,36 @@
 
 .activated {
   box-shadow: -1px 1px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1030px) {
+  .basic-info-container {
+    &__images {
+      img {
+        width: 4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .basic-info-container {
+    width: 90%;
+    margin: auto {
+      top: 2rem;
+    }
+
+    &button {
+      position: absolute;
+      bottom: 2.2rem;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__images {
+      img {
+        width: 4rem;
+      }
+    }
+  }
 }

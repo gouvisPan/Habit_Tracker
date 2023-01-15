@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./SpinningButton.scss";
 
-
-interface SpinningButtonProps{
-  className: string
+interface SpinningButtonProps {
+  className: string;
 }
 const SpinningButton: React.FC<SpinningButtonProps> = (props) => {
+  const { pathname } = useLocation();
 
-  const [isHome, setIsHome] = useState<boolean>(false);
+  const [isHome, setIsHome] = useState<boolean>(!pathname.includes("home"));
   const [isButtonAnimating, setIsButtonAnimating] = useState<boolean>(false);
 
   const iconPressHandler = () => {
@@ -31,7 +31,11 @@ const SpinningButton: React.FC<SpinningButtonProps> = (props) => {
 
   return (
     <NavLink onClick={iconPressHandler} to={isHome ? "/home" : "/profile"}>
-      <div className={`${isButtonAnimating && "animate-l"} icon-c ${props.className}`}>
+      <div
+        className={`${isButtonAnimating && "animate-l"} icon-c ${
+          props.className
+        }`}
+      >
         {renderedIcon}
       </div>
     </NavLink>

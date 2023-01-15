@@ -27,6 +27,9 @@ const authSlice = createSlice({
       state.isSuccess = true;
       state.isAuthenticated = true;
     },
+    setErrorState: (state, action) => {
+      state.error = action.payload;
+    },
     clearErrorState: (state) => {
       state.error = null;
     },
@@ -40,7 +43,7 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(loginUser.fulfilled, (state) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isAuthenticated = true;
@@ -54,7 +57,7 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(signUpUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(signUpUser.fulfilled, (state) => {
         state.isLoading = false;
         state.isAuthenticated = true;
       })

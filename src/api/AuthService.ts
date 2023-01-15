@@ -5,13 +5,10 @@ import {
   signOut,
   UserCredential,
   deleteUser,
-  updatePassword,
-  reauthenticateWithCredential,
 } from "firebase/auth";
 
 import SignUpCredentials from "../model/interfaces/SignupCredentials";
 import SignInCredentials from "../model/interfaces/SignInCredentials";
-import { ChangeCredentials } from "../model/interfaces/ChangeCredentials";
 
 export const signUpUser = (
   credentials: SignUpCredentials

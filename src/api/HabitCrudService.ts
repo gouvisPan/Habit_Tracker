@@ -1,6 +1,4 @@
-import { db } from "../firebase";
-import FSHabits from "../model/interfaces/FSHabits";
-import { auth } from "../firebase";
+import { db, auth } from "../firebase";
 import {
   doc,
   setDoc,
@@ -29,9 +27,9 @@ export const setHabits = async (habits: Habit[]) => {
   }
 };
 
-export const fetchHabits = async (uid: string) => {
+export const fetchHabits = async () => {
   try {
-    const q = query(colletionRef, where("id", "==", uid));
+    const q = query(colletionRef, where("id", "==", auth.currentUser?.uid));
     const response = await getDocs(q);
 
     if (response.docs[0]) return response.docs[0].data();

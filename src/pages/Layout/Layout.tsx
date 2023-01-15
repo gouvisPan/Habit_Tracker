@@ -36,8 +36,6 @@ const Layout = () => {
       {error && isErrorDisplaying && (
         <Notification message={error} type="error" />
       )}
-      {/* <Notification message={error} type="error" /> */}
-
       <Outlet />
     </div>
   );

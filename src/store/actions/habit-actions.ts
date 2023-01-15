@@ -95,9 +95,9 @@ export const updateHabitList = createAsyncThunk(
 
 export const fetchHabitList = createAsyncThunk(
   "habits/fetch",
-  async (uid: string, thunkApi) => {
+  async (_: void, thunkApi) => {
     try {
-      const response = await api.fetchHabits(uid);
+      const response = await api.fetchHabits();
 
       if (response) return response!.habits;
 

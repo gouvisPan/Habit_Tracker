@@ -8,7 +8,7 @@ import RequireAuth from "./pages/auth/RequireAuth";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "./firebase";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { useAppDispatch } from "./hooks/hooks";
 import { userActions } from "./store/reducers/userSlice";
 import { authActions } from "./store/reducers/authSlice";
 import Profile from "./pages/Profile/Profile";

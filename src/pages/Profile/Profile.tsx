@@ -1,19 +1,20 @@
-import React from "react";
 import "./Profile.scss";
-import placeholder from "../../assets/profile-image-placeholde.png";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { useAppSelector } from "../../hooks/hooks";
 import { useState } from "react";
-import BasicInfo from "./subPages/BasicInfo";
-import DeleteAccount from "./subPages/DeleteAccount";
+import BasicInfo from "./subPages/BasicInfo/BasicInfo";
+import DeleteAccount from "./subPages/DeleteAccount/DeleteAccount";
 import Statistics from "./subPages/Statistics/Statistics";
 import avatar1 from "../../assets/avatars/male_avatar_1.svg";
 import avatar2 from "../../assets/avatars/female_avatar_1.svg";
 import avatar3 from "../../assets/avatars/male_avatar_2.svg";
 import avatar4 from "../../assets/avatars/female_avatar_2.svg";
+import useWindowSize from "../../hooks/useWindowSize";
+import Header from "../../components/Header/Header";
 
 const Profile = () => {
   const [mountedPage, setMountedPage] = useState(0);
   const user = useAppSelector((state) => state.user.data);
+  const [height, width] = useWindowSize();
   let mountedJsx = <BasicInfo />;
   let profileImage;
 
@@ -48,6 +49,7 @@ const Profile = () => {
         <div className="profile-container__basic-info">
           <img src={profileImage} alt="avatar_img" />
           <h3>{user?.name}</h3>
+          {width < 701 && <Header />}
         </div>
         <ul className="profile-container__list">
           <li
@@ -56,7 +58,7 @@ const Profile = () => {
               setMountedPage(0);
             }}
           >
-            Basic info
+            Basic {width > 700 && "Info"}
           </li>
           <li
             className={mountedPage === 1 ? "profile-container__active" : ""}
@@ -68,7 +70,7 @@ const Profile = () => {
             className={mountedPage === 2 ? "profile-container__active" : ""}
             onClick={() => setMountedPage(2)}
           >
-            Delete Account
+            Delete {width > 700 && "Account"}
           </li>
         </ul>
       </div>

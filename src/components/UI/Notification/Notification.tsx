@@ -1,6 +1,4 @@
-import React, { Fragment } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React from "react";
 import { BiErrorCircle } from "react-icons/bi";
 import "./Notification.scss";
 

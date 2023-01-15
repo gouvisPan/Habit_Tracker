@@ -1,13 +1,8 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useAppDispatch } from "../../../hooks/hooks";
-import { Habit } from "../../../model/Habit";
 import { AddFormValues } from "../../../model/interfaces/AddFormValues";
-import {
-  addHabit,
-  updateHabitList,
-} from "../../../store/actions/habit-actions";
-import { habitActions } from "../../../store/reducers/habitSlice";
+import { addHabit } from "../../../store/actions/habit-actions";
 import TextField from "../../auth/TextField";
 import "./AddHabit.scss";
 
@@ -15,7 +10,9 @@ const AddHabit = () => {
   const dispatch = useAppDispatch();
 
   const validate = Yup.object({
-    name: Yup.string().required("Name is required"),
+    name: Yup.string()
+      .required("Name is required, please insert your name!")
+      .max(20, "Describe your hobie in less than 20 characters!"),
     desiredPerc: Yup.string().min(0).max(100),
   });
   const initialValues: AddFormValues = {

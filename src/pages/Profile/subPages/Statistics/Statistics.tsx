@@ -1,4 +1,3 @@
-import React from "react";
 import { calculateHabitsStats } from "../../../../helpers/calculateHabitSats";
 import { useAppSelector } from "../../../../hooks/hooks";
 import IndividualHabitStats from "./IndividiualHabitStats/IndividualHabitStats";
@@ -6,7 +5,7 @@ import "./Statistics.scss";
 
 const Statistics = () => {
   const habitsStats = useAppSelector((state) => calculateHabitsStats(state));
-  console.log(habitsStats);
+
   return (
     <div className="statistics">
       {habitsStats.length === 0 && (

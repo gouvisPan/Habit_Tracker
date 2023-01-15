@@ -7,7 +7,6 @@ import { createUser, fetchUser } from "./user-actions";
 import { fetchHabitList } from "./habit-actions";
 import { habitActions } from "../reducers/habitSlice";
 import { userActions } from "../reducers/userSlice";
-import { ChangeCredentials } from "../../model/interfaces/ChangeCredentials";
 
 export const signUpUser = createAsyncThunk(
   "auth/signUp",
@@ -28,10 +27,9 @@ export const loginUser = createAsyncThunk(
   "auth/signIn",
   async (credentials: SignInCredentials, thunkApi) => {
     try {
-      const response = await api.signInUser(credentials);
-      const uid = response.user.uid;
-      thunkApi.dispatch(fetchUser(uid));
-      thunkApi.dispatch(fetchHabitList(uid));
+      await api.signInUser(credentials);
+      thunkApi.dispatch(fetchUser());
+      thunkApi.dispatch(fetchHabitList());
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
@@ -51,14 +49,13 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-
 export const deleteUser = createAsyncThunk(
   "auth/delete",
   async (_: void, thunkApi) => {
     try {
-       await api.deleteUserAccount();
-       habitActions.clearHabits()
-       userActions.clearUser();
+      await api.deleteUserAccount();
+      habitActions.clearHabits();
+      userActions.clearUser();
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }

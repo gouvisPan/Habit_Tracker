@@ -26,11 +26,12 @@
       }
 
       &__error {
+        color: $color-grey-black;
         position: absolute;
-        top: 0;
         font-size: 12px;
-        left: 60%;
-        top: 0.5rem;
+        left: 50%;
+        top: 0.2rem;
+        transform: translateX(-10%);
       }
     }
 

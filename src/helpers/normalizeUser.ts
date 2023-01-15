@@ -2,8 +2,8 @@ import { DocumentData } from "firebase/firestore";
 import User from "../model/User";
 
 export const normalizeUser = (apiUser: DocumentData | undefined) => {
-  let nUser: User | undefined;
- 
+  let nUser: User;
+
   apiUser
     ? (nUser = {
         uid: apiUser.uid,
@@ -12,7 +12,13 @@ export const normalizeUser = (apiUser: DocumentData | undefined) => {
         motivation: apiUser.motivation,
         avatar: apiUser.avatar,
       })
-    : (nUser = undefined);
+    : (nUser = {
+        uid: "",
+        name: "",
+        email: "",
+        motivation: "",
+        avatar: 1,
+      });
 
   return nUser;
 };

@@ -1,18 +1,12 @@
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
+
 import {
   doc,
-  onSnapshot,
-  updateDoc,
   setDoc,
   getDoc,
   deleteDoc,
   collection,
   serverTimestamp,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
 } from "firebase/firestore";
 import User from "../model/User";
 
@@ -35,9 +29,9 @@ export const createUser = async (user: User) => {
   }
 };
 
-export const fetchUser = async (uid: string) => {
+export const fetchUser = async () => {
   try {
-    const userRef = doc(colletionRef, uid);
+    const userRef = doc(colletionRef, auth.currentUser?.uid);
     const response = await getDoc(userRef);
 
     return response.data();
@@ -46,12 +40,10 @@ export const fetchUser = async (uid: string) => {
   }
 };
 
-export const deleteUser = async (uid: string) => {
+export const deleteUser = async () => {
   try {
-    const userRef = doc(colletionRef, uid);
-    await deleteDoc(doc(db, "users", uid));
-
+    await deleteDoc(doc(db, "users", auth.currentUser!.uid));
   } catch (error) {
     console.error(error);
   }
-}
+};

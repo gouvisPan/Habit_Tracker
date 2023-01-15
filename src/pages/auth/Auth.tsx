@@ -2,18 +2,17 @@ import React, { Fragment } from "react";
 import RegisterForm from "./RegisterForm/RegisterForm";
 import "./Auth.scss";
 import { useState, useEffect } from "react";
-import { FcGoogle } from "react-icons/fc";
 import Shapes from "../../components/UI/Shapes/Shapes";
 import LoginForm from "./LoginForm/LoginForm";
 import { useAppSelector } from "../../hooks/hooks";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/hooks";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const Auth: React.FC = () => {
-  const [whiteCSS, setwhiteCss] = useState("register__left");
-  const [colorfulCSS, setColorfulCss] = useState("register__right");
+  const [whiteCSS, setwhiteCss] = useState("auth__left");
+  const [colorfulCSS, setColorfulCss] = useState("auth__right");
   const [signIn, setSignIn] = useState(true);
-
+  const [height, width] = useWindowSize();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
 
@@ -24,8 +23,8 @@ const Auth: React.FC = () => {
   }, [isAuthenticated, navigate]);
 
   const signInHandler = () => {
-    setwhiteCss(`register__left unmountWR`);
-    setColorfulCss(`register__right unmountCL`);
+    setwhiteCss(`auth__left unmountWR`);
+    setColorfulCss(`auth__right unmountCL`);
 
     setTimeout(() => {
       setSignIn(false);
@@ -33,8 +32,8 @@ const Auth: React.FC = () => {
   };
 
   const signUpHandler = () => {
-    setwhiteCss(`register__left unmountWL`);
-    setColorfulCss(`register__right unmountCR`);
+    setwhiteCss(`auth__left unmountWL`);
+    setColorfulCss(`auth__right unmountCR`);
 
     setTimeout(() => {
       setSignIn(true);
@@ -55,7 +54,7 @@ const Auth: React.FC = () => {
 
   const colorJSX = signIn ? (
     <Fragment>
-      <Shapes />
+      {width > 1300 && <Shapes />}
       <h1>Not a user?</h1>
       <h5 className="anim">
         Give us some extra information and create your account.
@@ -64,7 +63,7 @@ const Auth: React.FC = () => {
     </Fragment>
   ) : (
     <Fragment>
-      <Shapes />
+      {width > 1300 && <Shapes />}
       <h1>HabitFormer User?</h1>
       <h5 className="anim">
         Welcome back! Login to your account and get back to your growth journey
@@ -75,7 +74,7 @@ const Auth: React.FC = () => {
   );
 
   return (
-    <div className="register">
+    <div className="auth">
       <div className={whiteCSS}>{whiteJSX}</div>
       <div className={colorfulCSS}>{colorJSX}</div>
     </div>
