@@ -1,6 +1,6 @@
 import React from "react";
 import { BiErrorCircle } from "react-icons/bi";
-import "./Notification.scss";
+import "./Notifi{cation.scss";
 
 interface NotificationProps {
   message: string | null;
