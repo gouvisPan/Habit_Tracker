@@ -33,7 +33,7 @@ const HabitRow: React.FC<HabitRowProps> = (props) => {
         <div className="row-container__habit-name">{habit.name} </div>
         <div className="row-container--week">
           {habit.weeklyState.map((day, i) => (
-            <div className="checkbox-wrapper">
+            <div className="checkbox-wrapper" key={i}>
               <div
                 className="row-container--week__habit-checkbox"
                 onClick={() => clickStateHandler(i)}
