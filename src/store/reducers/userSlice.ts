@@ -8,7 +8,6 @@ interface userSliceState {
   isSuccess: boolean;
   error: null | string;
   data: null | User;
-  token: null | string;
 }
 
 const initialState: userSliceState = {
@@ -16,7 +15,6 @@ const initialState: userSliceState = {
   isSuccess: false,
   error: null,
   data: null,
-  token: null,
 };
 
 const userSlice = createSlice({
