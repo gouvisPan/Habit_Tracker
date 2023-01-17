@@ -1,10 +1,34 @@
-# Getting Started with Create React App
+# HABIT-TRACKER-WEB-APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+## Description 
+An application that I developed in the context of an interview technical assesment. The app is a simple habit tracker that lets the User track his habits in a weekly basis while it extracts some statistics for each habit.
+
+## Features
+- User Authentication 
+- CRUD User capabilities
+- CRUD Hbits capabilities
+- Statistics 
+
+
+## Technologies and Tools used
+- Typescript, React, TSX and SCSS 
+- Redux and Redux toolkit for data persistance throughout the various components of the App
+- Redux persist for data persistance in browser's storage
+- React Router DOM for application routing and navigation handling
+- Firebase for user Authentication
+- Firestore for data Storage
+- Formik and Yup for form handling and validation
+
+
+---
+---
+
+
 
 ## Available Scripts
 
-In the project directory, you can run:
+
 
 ### `npm start`
 
