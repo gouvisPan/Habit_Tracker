@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 const Header = () => {
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const colorCSS = pathname.includes("home") ? "white" : "";
+  const colorCSS = !pathname.includes("profile") ? "white" : "";
   const habits = useAppSelector((state) => state.habits.habitList);
   const showWeek = habits && habits.length !== 0;
   const styles = {

@@ -2,19 +2,22 @@
 
 .row-container {
   display: flex;
-  gap: 2rem;
+  gap: 30px;
   width: 100%;
   align-items: center;
+  justify-content: flex-end;
 
   &__habit-name {
-    width: 25rem;
-    min-width: 12rem;
-    padding: 0.2rem 0.4rem;
+    width: 150px;
+    padding: 0.2rem 0px;
   }
 
+  &__icon-wrapper {
+    width: 30px;
+  }
   &__icon {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     background-color: $color-primary-c;
     color: white;
     transform: translateX(40%);
@@ -36,8 +39,6 @@
   &--week {
     display: flex;
     justify-items: center;
-    justify-content: space-between;
-    width: 100%;
 
     &__habit-checkbox input[type="checkbox"]:hover + label::before {
       cursor: pointer;
@@ -80,10 +81,31 @@
 }
 
 .checkbox-wrapper {
-  width: 5.8rem;
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 2200px) {
+  .checkbox-wrapper {
+    width: 190px;
+  }
+}
+@media screen and (max-width: 1900px) {
+  .checkbox-wrapper {
+    width: 140px;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .checkbox-wrapper {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .checkbox-wrapper {
+    width: 100px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -95,12 +117,6 @@
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    &__habit-name {
-      width: 5rem;
-      min-width: 3rem;
-      padding: 0.2rem 0.4rem;
     }
 
     &__icon-wrapper {
@@ -123,29 +139,72 @@
         transform: translateX(-50%);
       }
     }
-
-    &--week {
-      display: flex;
-      justify-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
   }
-
   .checkbox-wrapper {
-    width: 2.4rem;
+    width: 120px;
   }
 }
 
 @media only screen and (orientation: landscape) {
   .row-container {
-    padding: 1rem 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     overflow: hidden;
     height: fit-content;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .checkbox-wrapper {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .checkbox-wrapper {
+    width: 80px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .checkbox-wrapper {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .row-container {
+    display: flex;
 
     &__habit-name {
-      padding: 0rem 0.4rem;
-      align-self: center;
+      width: 100px;
     }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      background-color: $color-primary-c;
+      color: white;
+      transform: translateX(40%);
+      padding: 0.5rem 1rem;
+      margin-right: -1.3rem;
+      transition: 0.2s ease-in;
+    }
+
+    &--week {
+      display: flex;
+      justify-items: center;
+    }
+  }
+  .checkbox-wrapper {
+    width: 50px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .checkbox-wrapper {
+    width: 35px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .checkbox-wrapper {
+    width: 30px;
   }
 }

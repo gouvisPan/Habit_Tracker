@@ -12,7 +12,7 @@ const AddHabit = () => {
   const validate = Yup.object({
     name: Yup.string()
       .required("Name is required, please insert your name!")
-      .max(20, "Describe your hobie in less than 20 characters!"),
+      .max(30, "Describe your hobie in less than 30 characters!"),
     desiredPerc: Yup.string().min(0).max(100),
   });
   const initialValues: AddFormValues = {

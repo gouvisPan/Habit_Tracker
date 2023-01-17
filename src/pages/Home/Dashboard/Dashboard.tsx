@@ -43,20 +43,20 @@ const Dashboard2: React.FC<{}> = () => {
         <Fragment>
           <div className="dash__top">
             <h1>Weekly Dash</h1>
-            {width < 701 && showWeek && <Header />}
+            {width < 801 && showWeek && <Header />}
           </div>
           <div className="static">
             <div className="static__habit-name-c">
-              <span>{width > 700 && "My"} Habits</span>
+              <span>{width > 1000 && "My"} Habits</span>
             </div>
             <div className="static__week">
-              {width > 700 &&
+              {width > 800 &&
                 daysLong.map((d) => (
-                  <span className="static__week--day-name" key={d}>
+                  <span className="static__week--day-name " key={d}>
                     {d}
                   </span>
                 ))}
-              {width < 701 &&
+              {width < 801 &&
                 daysShort.map((d) => (
                   <span className="static__week--day-name" key={d}>
                     {d}

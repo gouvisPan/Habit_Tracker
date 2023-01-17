@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 7rem;
+  padding: 0 10rem;
   background: $color-primary-gradient;
   padding-top: 1rem;
   padding-bottom: 2rem;
@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1em;
+  padding: 1em 0;
   padding-right: 0;
   border-radius: 12px;
   max-height: 25vh;
@@ -66,26 +66,25 @@
 
 .static {
   display: flex;
-  gap: 1.3rem;
+  gap: 30px;
   width: 100%;
-
+  justify-content: flex-end;
   &__habit-name-c {
-    width: 26.5rem;
+    width: 150px;
     font-weight: 700;
 
     span {
       font-size: 24px;
+      width: 100%;
     }
   }
 
   &__week {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
 
     &--day-name {
-      width: 6rem;
+      width: 220px;
       font-weight: 600;
       font-size: 17px;
       letter-spacing: 0.5px;
@@ -93,8 +92,47 @@
       text-align: center;
     }
   }
+
   &__dummy {
-    width: 3rem;
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 2200px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 190px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1900px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 140px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1700px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 120px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 100px;
+      }
+    }
   }
 }
 @media screen and (max-width: 1200px) {
@@ -102,6 +140,19 @@
     padding: 0 0 3rem 0;
     width: 100%;
     max-height: 65vh;
+  }
+  .dash-container {
+    border-radius: 0;
+  }
+  .static {
+    &__week {
+      &--day-name {
+        width: 120px;
+      }
+    }
+    &__dummy {
+      width: 0px;
+    }
   }
 }
 @media screen and (max-width: 1030px) {
@@ -131,59 +182,32 @@
   }
 
   .static {
-    gap: 1.3rem;
-    width: 100%;
-
-    &__habit-name-c {
-      padding-left: 0.5rem;
-      width: 6rem;
-      font-weight: 700;
-
-      span {
-        font-size: 24px;
-      }
-    }
-
     &__week {
       &--day-name {
-        width: 2.4rem;
-        font-weight: 600;
-        font-size: 17px;
+        width: 100px;
       }
-    }
-    &__dummy {
-      width: 1rem;
     }
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
   .static {
-    gap: 1.3rem;
-    width: 100%;
-
-    &__habit-name-c {
-      padding-left: 0.5rem;
-      width: 3.9rem;
-
-      span {
-        font-size: 24px;
-      }
-    }
-
     &__week {
       &--day-name {
-        width: 2.4rem;
-        font-weight: 600;
-        font-size: 17px;
+        width: 80px;
       }
-    }
-    &__dummy {
-      width: 1rem;
     }
   }
 }
-
+@media screen and (max-width: 750px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 60px;
+      }
+    }
+  }
+}
 @media only screen and (orientation: landscape) and (max-width: 700px) {
   .dash {
     padding: 0 0 3rem 0;
@@ -197,5 +221,53 @@
     border-radius: 0;
     max-height: 45vh;
     padding-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .static {
+    gap: 1.3rem;
+
+    &__habit-name-c {
+      padding-left: 0.5rem;
+      width: 100px;
+      span {
+        font-size: 24px;
+      }
+    }
+
+    &__week {
+      &--day-name {
+        width: 50px;
+        font-weight: 600;
+        font-size: 17px;
+      }
+    }
+    &__dummy {
+      width: 10px;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 35px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .static {
+    &__week {
+      &--day-name {
+        width: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .dash-container {
+    min-height: 30vh;
   }
 }

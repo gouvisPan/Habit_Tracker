@@ -6,3 +6,17 @@
   margin: auto;
   top: 5rem;
 }
+
+.spinner-loader {
+  z-index: 2000;
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1000) {
+  .spinner-loader {
+    top: 25%;
+  }
+}
