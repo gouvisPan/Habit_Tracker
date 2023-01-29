@@ -31,6 +31,8 @@ An application that I developed in the context of an interview technical assesme
 
 <img width="1440" alt="auth" src="https://user-images.githubusercontent.com/97959624/215315333-0942a860-ce2c-489b-bd9e-47464cc3e8ef.png">
 
+<img width="1439" alt="home" src="https://user-images.githubusercontent.com/97959624/215315275-9b07b906-1222-4096-af02-fea2247ccb51.png">
+
 ![statistics](https://user-images.githubusercontent.com/97959624/215315482-a5e98f97-c9d5-41b3-ba3d-68e12cbd2adc.png)
 
 <img width="1440" alt="profile" src="https://user-images.githubusercontent.com/97959624/215315345-35e4c0cd-df8a-4310-bd5a-2b59cbb4374c.png">
