@@ -31,16 +31,18 @@ An application that I developed in the context of an interview technical assesme
 
 <img width="1440" alt="auth" src="https://user-images.githubusercontent.com/97959624/215315333-0942a860-ce2c-489b-bd9e-47464cc3e8ef.png">
 
-<img width="1440" alt="statistics" src="https://user-images.githubusercontent.com/97959624/215315338-4cd09baf-52cf-484f-983e-a5f32e24c165.png">
+![statistics](https://user-images.githubusercontent.com/97959624/215315482-a5e98f97-c9d5-41b3-ba3d-68e12cbd2adc.png)
 
 <img width="1440" alt="profile" src="https://user-images.githubusercontent.com/97959624/215315345-35e4c0cd-df8a-4310-bd5a-2b59cbb4374c.png">
+
 
 <img width="318" alt="homeM" src="https://user-images.githubusercontent.com/97959624/215315348-fd98f34a-8ffb-414b-b2bd-f581ec0
 
 <img width="317" alt="statisticsM" src="https://user-images.githubusercontent.com/97959624/215315353-10506847-de79-4735-8ba5-a08bcdf796c3.png">
-6dbd5.png">
+6dbd5.png">  
 
 <img width="316" alt="profileM" src="https://user-images.githubusercontent.com/97959624/215315358-d3bd862a-62d4-430a-8882-206cab94a47f.png">
+
 
 
 ## Available Scripts
