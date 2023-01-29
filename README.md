@@ -1,3 +1,6 @@
+<img width="1439" alt="home" src="https://user-images.githubusercontent.com/97959624/215315275-9b07b906-1222-4096-af02-fea2247ccb51.png">
+
+
 # HABIT-TRACKER-WEB-APP
 
 ---
