@@ -38,10 +38,10 @@ An application that I developed in the context of an interview technical assesme
 <img width="318" alt="homeM" src="https://user-images.githubusercontent.com/97959624/215315348-fd98f34a-8ffb-414b-b2bd-f581ec0
 
 <img width="317" alt="statisticsM" src="https://user-images.githubusercontent.com/97959624/215315353-10506847-de79-4735-8ba5-a08bcdf796c3.png">
-6dbd5.png
+6dbd5.png">
 
 <img width="316" alt="profileM" src="https://user-images.githubusercontent.com/97959624/215315358-d3bd862a-62d4-430a-8882-206cab94a47f.png">
-">
+
 
 ## Available Scripts
 
