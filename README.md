@@ -23,6 +23,7 @@ An application that I developed in the context of an interview technical assesme
 - Firestore for data Storage
 - Formik and Yup for form handling and validation
 
+### TESTING credentials: mail: gouvispan@gmail.com  ,pass: 111111
 
 ---
 ---
